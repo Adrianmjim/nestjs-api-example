@@ -1,7 +1,7 @@
 {
   "name": "nestjs-api-example",
   "version": "0.1.0",
-  "description": "A CRUD HTTP REST API example implemented with DDD, CQRS, Nestjs(Fastify), TypeOrm and Postgres DB",
+  "description": "HTTP REST API pet project built on top of Nestjs",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
     "build:incremental": "tsc -p tsconfig.build.incremental.json",
@@ -17,6 +17,7 @@
     "test:develop": "jest --changedSince=origin/develop",
     "test:previous": "jest --changedSince=HEAD~1",
     "test:js:ci": "npm run test:js -- --ci",
+    "test:js:ci:coverage": "npm run test:js:ci -- --coverage",
     "test:js:coverage": "npm run test:js -- --coverage",
     "test:js": "npm test -- --config=jest.js.config.json",
     "test:unit": "jest --selectProjects Unit",
