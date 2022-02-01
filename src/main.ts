@@ -1,4 +1,4 @@
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { AppModule } from './AppModule';
@@ -11,6 +11,9 @@ async function bootstrap(): Promise<void> {
     cors: { origin: '*' },
   });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+  app.enableVersioning({
+    type: VersioningType.URI,
+  });
 
   setUpSwagger(app, adapter.getInstance(), 'docs', 'Nestjs API Example', []);
 
