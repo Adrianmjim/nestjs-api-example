@@ -4,12 +4,12 @@ import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 export class InsertCatHttpV1 {
   @ApiProperty()
   @IsNotEmpty()
-  @IsString()
+  @IsNumber()
   age!: number;
 
   @ApiProperty()
   @IsNotEmpty()
-  @IsNumber()
+  @IsString()
   breed!: string;
 
   @ApiProperty()

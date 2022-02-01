@@ -1,18 +1,18 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class UpdateCatHttpV1 {
-  @ApiProperty()
-  @IsOptional()
-  @IsString()
-  age!: number;
-
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
+  age!: number;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
   breed!: string;
 
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsOptional()
   @IsString()
   name!: string;
