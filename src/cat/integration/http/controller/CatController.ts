@@ -1,16 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Param,
-  ParseIntPipe,
-  Patch,
-  Post,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post, Query } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import {
   ApiBadRequestResponse,
@@ -24,6 +12,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
+import { ParseIntOrUndefinedPipe } from '../../../../common/integration/http/pipe/ParseIntOrUndefinedPipe';
 import { CatDeleteCommand } from '../../../domain/command/CatDeleteCommand';
 import { CatInsertCommand } from '../../../domain/command/CatInsertCommand';
 import { CatSetCommand } from '../../../domain/command/CatSetCommand';
@@ -61,7 +50,7 @@ export class CatController {
   @ApiOkResponse({ description: 'Returns a list of cats', type: [CatHttpV1] })
   @Get()
   public async find(
-    @Query('age', ParseIntPipe) age?: number,
+    @Query('age', ParseIntOrUndefinedPipe) age?: number,
     @Query('breed') breed?: string,
     @Query('name') name?: string,
   ): Promise<Cat[]> {
