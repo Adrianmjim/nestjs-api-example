@@ -1,4 +1,16 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import {
   ApiBadRequestResponse,
@@ -23,7 +35,7 @@ import { InsertCatHttpV1 } from '../model/InsertCatHttpV1';
 import { UpdateCatHttpV1 } from '../model/UpdateCatHttpV1';
 
 @ApiTags('Cats')
-@Controller('cats')
+@Controller({ path: 'cats', version: '1' })
 export class CatController {
   public constructor(private readonly queryBus: QueryBus, private readonly commandBus: CommandBus) {}
 
@@ -49,9 +61,9 @@ export class CatController {
   @ApiOkResponse({ description: 'Returns a list of cats', type: [CatHttpV1] })
   @Get()
   public async find(
-    @Param('age', ParseIntPipe) age?: number,
-    @Param('breed') breed?: string,
-    @Param('name') name?: string,
+    @Query('age', ParseIntPipe) age?: number,
+    @Query('breed') breed?: string,
+    @Query('name') name?: string,
   ): Promise<Cat[]> {
     const catFindQuery: CatFindQuery = new CatFindQuery(age, breed, undefined, name);
     const cats: Cat[] = await this.queryBus.execute(catFindQuery);
