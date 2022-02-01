@@ -18,9 +18,9 @@ import { CatSetCommand } from '../../../domain/command/CatSetCommand';
 import { CatUpdateCommand } from '../../../domain/command/CatUpdateCommand';
 import { Cat } from '../../../domain/model/Cat';
 import { CatFindQuery } from '../../../domain/query/CatFindQuery';
-import { CatResponse } from '../model/CatResponse';
-import { InsertCatRequest } from '../model/InsertCatRequest';
-import { UpdateCatRequest } from '../model/UpdateCatRequest';
+import { CatHttpV1 } from '../model/CatHttpV1';
+import { InsertCatHttpV1 } from '../model/InsertCatHttpV1';
+import { UpdateCatHttpV1 } from '../model/UpdateCatHttpV1';
 
 @ApiTags('Cats')
 @Controller('cats')
@@ -31,10 +31,10 @@ export class CatController {
     description: 'Create cats',
     summary: 'Create Cat',
   })
-  @ApiCreatedResponse({ description: 'Returns the cat created', type: CatResponse })
+  @ApiCreatedResponse({ description: 'Returns the cat created', type: CatHttpV1 })
   @ApiBadRequestResponse({ description: 'Bad request' })
   @Post()
-  public async create(@Body() body: InsertCatRequest): Promise<Cat> {
+  public async create(@Body() body: InsertCatHttpV1): Promise<Cat> {
     const catInsertCommand: CatInsertCommand = new CatInsertCommand(body.age, body.breed, body.name);
 
     const cat: Cat = await this.commandBus.execute(catInsertCommand);
@@ -46,7 +46,7 @@ export class CatController {
   @ApiQuery({ name: 'age', required: false })
   @ApiQuery({ name: 'breed', required: false })
   @ApiQuery({ name: 'name', required: false })
-  @ApiOkResponse({ description: 'Returns a list of cats', type: [CatResponse] })
+  @ApiOkResponse({ description: 'Returns a list of cats', type: [CatHttpV1] })
   @Get()
   public async find(
     @Param('age', ParseIntPipe) age?: number,
@@ -64,7 +64,7 @@ export class CatController {
     summary: 'Find Cat By Id',
   })
   @ApiParam({ name: 'id' })
-  @ApiOkResponse({ description: 'Returns a cat', type: CatResponse })
+  @ApiOkResponse({ description: 'Returns a cat', type: CatHttpV1 })
   @ApiNotFoundResponse({ description: 'Not found' })
   @Get(':id')
   public async findById(@Param('id') id: string): Promise<Cat> {
@@ -83,7 +83,7 @@ export class CatController {
   @ApiNoContentResponse({ description: 'Empty response' })
   @Patch(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  public async update(@Param('id') id: string, @Body() body: UpdateCatRequest): Promise<void> {
+  public async update(@Param('id') id: string, @Body() body: UpdateCatHttpV1): Promise<void> {
     const catFindQuery: CatFindQuery = new CatFindQuery(undefined, undefined, id, undefined);
     const catSetCommand: CatSetCommand = new CatSetCommand(body.age, body.breed, body.name);
     const catUpdateCommand: CatUpdateCommand = new CatUpdateCommand(catFindQuery, catSetCommand);

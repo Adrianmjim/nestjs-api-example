@@ -6,10 +6,10 @@ import { CatInsertCommandFixtures } from '../../../fixtures/domain/command/CatIn
 import { CatUpdateCommandFixtures } from '../../../fixtures/domain/command/CatUpdateCommandFixtures';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { CatFindQueryFixtures } from '../../../fixtures/domain/query/CatFindQueryFixtures';
-import { InsertCatRequestFixtures } from '../../../fixtures/integration/http/model/InsertCatRequestFixtures';
-import { UpdateCatRequestFixtures } from '../../../fixtures/integration/http/model/UpdateCatRequestFixtures';
-import { InsertCatRequest } from '../model/InsertCatRequest';
-import { UpdateCatRequest } from '../model/UpdateCatRequest';
+import { InsertCatHttpV1Fixtures } from '../../../fixtures/integration/http/model/InsertCatHttpV1Fixtures';
+import { UpdateCatHttpV1Fixtures } from '../../../fixtures/integration/http/model/UpdateCatHttpV1Fixtures';
+import { InsertCatHttpV1 } from '../model/InsertCatHttpV1';
+import { UpdateCatHttpV1 } from '../model/UpdateCatHttpV1';
 import { CatController } from './CatController';
 
 describe(CatController.name, () => {
@@ -32,18 +32,18 @@ describe(CatController.name, () => {
   describe('.create()', () => {
     describe('when called', () => {
       let catFixture: Cat;
-      let insertCatRequestFixture: InsertCatRequest;
+      let insertCatHttpV1Fixture: InsertCatHttpV1;
       let catInsertCommandFixture: ICommand;
       let result: unknown;
 
       beforeAll(async () => {
         catFixture = CatFixtures.any;
-        insertCatRequestFixture = InsertCatRequestFixtures.any;
+        insertCatHttpV1Fixture = InsertCatHttpV1Fixtures.any;
         catInsertCommandFixture = CatInsertCommandFixtures.any;
 
         commandBusMock.execute.mockResolvedValueOnce(catFixture);
 
-        result = await catController.create(insertCatRequestFixture);
+        result = await catController.create(insertCatHttpV1Fixture);
       });
 
       afterAll(() => {
@@ -184,15 +184,15 @@ describe(CatController.name, () => {
   describe('.update()', () => {
     describe('when called', () => {
       let catUpdateCommandFixture: ICommand;
-      let updateCatRequestFixture: UpdateCatRequest;
+      let updateCatHttpV1Fixture: UpdateCatHttpV1;
       let idFixture: string;
 
       beforeAll(async () => {
         catUpdateCommandFixture = CatUpdateCommandFixtures.any;
-        updateCatRequestFixture = UpdateCatRequestFixtures.withName;
+        updateCatHttpV1Fixture = UpdateCatHttpV1Fixtures.withName;
         idFixture = CatFixtures.any.id;
 
-        await catController.update(idFixture, updateCatRequestFixture);
+        await catController.update(idFixture, updateCatHttpV1Fixture);
       });
 
       afterAll(() => {

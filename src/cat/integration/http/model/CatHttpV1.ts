@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CatResponse {
+export class CatHttpV1 {
   @ApiProperty()
   id!: string;
 
