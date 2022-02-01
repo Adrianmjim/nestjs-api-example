@@ -6,7 +6,7 @@ import { CatTypeOrm } from '../model/CatTypeOrm';
 
 @Injectable()
 export class CatFindQueryToCatFindQueryTypeOrmConverter implements Converter<CatFindQuery, FindConditions<CatTypeOrm>> {
-  convert(input: CatFindQuery): FindConditions<CatTypeOrm> {
+  public convert(input: CatFindQuery): FindConditions<CatTypeOrm> {
     const catFindQueryTypeOrm: FindConditions<CatTypeOrm> = {};
 
     if (input.age !== undefined) {
