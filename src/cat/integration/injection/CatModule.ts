@@ -11,6 +11,7 @@ import { DeleteCatManager } from '../../domain/service/DeleteCatManager';
 import { FindCatManager } from '../../domain/service/FindCatManager';
 import { InsertCatManager } from '../../domain/service/InsertCatManager';
 import { UpdateCatManager } from '../../domain/service/UpdateCatManager';
+import { CatResolver } from '../graphql/resolver/CatResolver';
 import { CatController } from '../http/controller/CatController';
 import { DeleteCatTypeOrmAdapter } from '../typeOrm/adapter/DeleteCatTypeOrmAdapter';
 import { FindCatTypeOrmAdapter } from '../typeOrm/adapter/FindCatTypeOrmAdapter';
@@ -55,6 +56,6 @@ const queryHandlers: Provider<IQueryHandler>[] = [CatFindQueryHandler];
 @Module({
   controllers: [CatController],
   imports: [TypeOrmModule.forFeature([CatTypeOrm]), CqrsModule],
-  providers: [...adapters, ...commandHandlers, ...converters, ...managers, ...queryHandlers],
+  providers: [...adapters, ...commandHandlers, ...converters, ...managers, ...queryHandlers, CatResolver],
 })
 export class CatModule {}

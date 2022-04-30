@@ -7,10 +7,8 @@ import { setUpSwagger } from './swagger/InitSwagger';
 
 async function bootstrap(): Promise<void> {
   const adapter: FastifyAdapter = new FastifyAdapter({ logger: true });
-  const app: NestFastifyApplication = await NestFactory.create<NestFastifyApplication>(AppModule, adapter, {
-    cors: { origin: '*' },
-  });
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+  const app: NestFastifyApplication = await NestFactory.create<NestFastifyApplication>(AppModule, adapter, {});
+  app.useGlobalPipes(new ValidationPipe({}));
   app.enableVersioning({
     type: VersioningType.URI,
   });

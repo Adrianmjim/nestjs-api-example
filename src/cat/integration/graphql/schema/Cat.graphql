@@ -1,0 +1,35 @@
+scalar Void
+scalar UUID
+scalar PositiveInt
+
+type Query {
+  cats(age: PositiveInt, breed: String, name: String): [Cat!]!
+  cat(id: UUID!): Cat!
+}
+
+type Mutation {
+  insertCat(insertCatInput: InsertCatInput!): Cat!
+  updateCat(id: UUID!, updateCatInput: UpdateCatInput!): Void
+  deleteCat(id: UUID!): Void
+}
+
+type Cat {
+  id: UUID!
+  name: String!
+  age: PositiveInt!
+  breed: String!
+  favouriteFood: Food!
+  owner: User!
+}
+
+input InsertCatInput {
+  age: PositiveInt!
+  breed: String!
+  name: String!
+}
+
+input UpdateCatInput {
+  age: PositiveInt
+  breed: String
+  name: String
+}

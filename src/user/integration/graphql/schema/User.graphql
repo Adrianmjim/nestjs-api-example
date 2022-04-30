@@ -1,0 +1,38 @@
+scalar UUID
+scalar PositiveInt
+scalar EmailAddress
+scalar PhoneNumber
+
+type Query {
+  user(id: UUID!): User!
+  users: [User!]!
+}
+
+type Mutation {
+  deleteUser(id: UUID!): Void
+  insertUser(insertUser: InsertUser): User!
+  updateUser(updateUser: UpdateUser): Void
+}
+
+type User {
+  age: PositiveInt!
+  cats: [Cat!]!
+  email: EmailAddress!
+  id: UUID!
+  name: String!
+  surname: String!
+}
+
+input InsertUser {
+  age: PositiveInt!
+  email: EmailAddress!
+  name: String!
+  surname: String!
+}
+
+input UpdateUser {
+  age: PositiveInt
+  email: EmailAddress
+  name: String
+  surname: String
+}

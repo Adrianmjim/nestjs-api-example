@@ -1,5 +1,9 @@
+import { makeExecutableSchema } from '@graphql-tools/schema';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { typeDefs, resolvers } from 'graphql-scalars';
 import { CatModule } from './cat/integration/injection/CatModule';
 import { CatTypeOrm } from './cat/integration/typeOrm/model/CatTypeOrm';
 import { ConfigModule } from './config/integration/injector/ConfigModule';
@@ -19,6 +23,15 @@ function typeOrmFactory(typeOrmConfig: TypeOrmConfig): TypeOrmModuleOptions {
 
 @Module({
   imports: [
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      debug: true,
+      driver: ApolloDriver,
+      schema: makeExecutableSchema({
+        resolvers: [resolvers],
+        typeDefs: [...typeDefs],
+      }),
+      typePaths: ['./**/*.graphql'],
+    }),
     CatModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
