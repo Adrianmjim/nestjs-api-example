@@ -4,4 +4,5 @@ export interface Cat {
   age: number;
   breed: string;
   ownerId: string;
+  favouriteFoodId: string;
 }

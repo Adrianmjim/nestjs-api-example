@@ -1,0 +1,45 @@
+import { applyDecorators, NotFoundException, Res } from '@nestjs/common';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { Cat } from '../../../../cat/domain/model/Cat';
+import { FoodInsertCommand } from '../../../domain/command/FoodInsertCommand';
+import { Food } from '../../../domain/model/Food';
+import { FoodFindQuery } from '../../../domain/query/FoodFindQuery';
+import { InsertFood } from '../input/InsertFood';
+
+@Resolver('Food')
+export class FoodResolver {
+  public constructor(private readonly queryBus: QueryBus, private readonly commandBus: CommandBus) {}
+
+  @Query('food')
+  public async findById(@Args('id') id: string): Promise<Food> {
+    const [food]: Food[] = await this.queryBus.execute(new FoodFindQuery(id));
+
+    if (food !== undefined) {
+      return food;
+    } else {
+      throw new NotFoundException();
+    }
+  }
+
+  @Query('foods')
+  public async find(): Promise<Food[]> {
+    return this.queryBus.execute(new FoodFindQuery(undefined));
+  }
+
+  @Mutation('insertFood')
+  public async insert(@Args('insertFood') insertFood: InsertFood): Promise<Food> {
+    return this.commandBus.execute(new FoodInsertCommand(insertFood.amount, insertFood.name, insertFood.prize));
+  }
+
+  @applyDecorators(Resolver('Cat'), ResolveField('favouriteFood'))
+  public async resolveCatFavouriteFood(@Parent() cat: Cat): Promise<Food> {
+    const [food]: Food[] = await this.queryBus.execute(new FoodFindQuery(cat.favouriteFoodId));
+
+    if (food !== undefined) {
+      return food;
+    } else {
+      throw new NotFoundException();
+    }
+  }
+}

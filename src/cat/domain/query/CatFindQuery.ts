@@ -4,7 +4,9 @@ export class CatFindQuery implements IQuery {
   public constructor(
     public readonly age: number | undefined,
     public readonly breed: string | undefined,
+    public readonly foodId: string | undefined,
     public readonly id: string | undefined,
     public readonly name: string | undefined,
+    public readonly userId: string | undefined,
   ) {}
 }

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { InsertAdapter } from '../../../common/domain/service/InsertAdapter';
 import { InsertOneManager } from '../../../common/domain/service/InsertOneManager';
-import { InsertUserTypeOrmAdapter } from '../../integration/typeOrm/model/adpater/InsertUserTypeOrmAdapter';
+import { InsertUserTypeOrmAdapter } from '../../integration/typeOrm/adpater/InsertUserTypeOrmAdapter';
 import { UserInsertCommand } from '../command/UserInsertCommand';
 import { User } from '../model/User';
 

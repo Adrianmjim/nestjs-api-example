@@ -1,0 +1,26 @@
+scalar PositiveInt
+scalar DateTime
+scalar UUID
+
+type Query {
+	purchase(id: UUID!): Purchase!
+	purchases(userId: UUID): [Purchase!]!
+}
+
+type Mutation {
+	insertPurchase(insertPurchase: InsertPurchase): Purchase!
+}
+
+type Purchase {
+	id: UUID!
+	prize: PositiveInt!
+	user: User!
+	food: Food!
+	date: DateTime!
+}
+
+input InsertPurchase {
+	prize: PositiveInt!
+	userId: UUID!
+	foodId: UUID!
+}

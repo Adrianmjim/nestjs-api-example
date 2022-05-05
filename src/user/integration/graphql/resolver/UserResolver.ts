@@ -1,6 +1,7 @@
-import { NotFoundException } from '@nestjs/common';
+import { applyDecorators, NotFoundException } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { Cat } from '../../../../cat/domain/model/Cat';
 import { UserInsertCommand } from '../../../domain/command/UserInsertCommand';
 import { User } from '../../../domain/model/User';
 import { UserFindQuery } from '../../../domain/query/UserFindQuery';
@@ -31,5 +32,16 @@ export class UserResolver {
     return this.commandBus.execute(
       new UserInsertCommand(insertUser.age, insertUser.email, insertUser.name, insertUser.surname),
     );
+  }
+
+  @applyDecorators(Resolver('Cat'), ResolveField('owner'))
+  public async resolveCatOwner(@Parent() cat: Cat): Promise<User> {
+    const user: User = await this.queryBus.execute(new UserFindQuery(cat.ownerId, undefined));
+
+    if (user !== undefined) {
+      return user;
+    } else {
+      throw new NotFoundException();
+    }
   }
 }

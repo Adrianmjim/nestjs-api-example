@@ -1,5 +1,6 @@
-scalar UUID
+scalar PositiveInt
 scalar Void
+scalar UUID
 
 type Query {
   food(id: UUID!): Food!
@@ -7,9 +8,7 @@ type Query {
 }
 
 type Mutation {
-  deleteFood(id: UUID!): Void
   insertFood(insertFood: InsertFood): Food!
-  updateFoof(updateFood: UpdateFood): Void
 }
 
 type Food {
@@ -23,12 +22,6 @@ input InsertFood {
   name: String!
   amount: Int!
   prize: Int!
-}
-
-input UpdateFood {
-  name: String
-  amount: Int
-  prize: Int
 }
 
 

@@ -1,7 +1,6 @@
 scalar UUID
 scalar PositiveInt
 scalar EmailAddress
-scalar PhoneNumber
 
 type Query {
   user(id: UUID!): User!
@@ -9,18 +8,17 @@ type Query {
 }
 
 type Mutation {
-  deleteUser(id: UUID!): Void
   insertUser(insertUser: InsertUser): User!
-  updateUser(updateUser: UpdateUser): Void
 }
 
 type User {
   age: PositiveInt!
-  cats: [Cat!]!
   email: EmailAddress!
   id: UUID!
   name: String!
   surname: String!
+  cats: [Cat!]!
+  purchases: [Purchase!]!
 }
 
 input InsertUser {
@@ -28,11 +26,4 @@ input InsertUser {
   email: EmailAddress!
   name: String!
   surname: String!
-}
-
-input UpdateUser {
-  age: PositiveInt
-  email: EmailAddress
-  name: String
-  surname: String
 }

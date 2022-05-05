@@ -9,8 +9,10 @@ export class CatTypeOrmToCatConverter implements Converter<CatTypeOrm, Cat> {
     const cat: Cat = {
       age: input.age,
       breed: input.breed,
+      favouriteFoodId: input.favouriteFoodId,
       id: input.id,
       name: input.name,
+      ownerId: input.ownerId,
     };
 
     return cat;

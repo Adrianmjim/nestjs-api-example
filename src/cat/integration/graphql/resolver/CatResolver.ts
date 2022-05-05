@@ -1,11 +1,11 @@
-import { NotFoundException } from '@nestjs/common';
+import { applyDecorators, NotFoundException } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { User } from '../../../../user/domain/model/User';
 import { CatInsertCommand } from '../../../domain/command/CatInsertCommand';
 import { Cat } from '../../../domain/model/Cat';
 import { CatFindQuery } from '../../../domain/query/CatFindQuery';
 import { InsertCat } from '../model/InsertCat';
-import { UpdateCat } from '../model/UpdateCat';
 
 @Resolver('Cat')
 export class CatResolver {
@@ -13,7 +13,9 @@ export class CatResolver {
 
   @Query('cat')
   public async findById(@Args('id') id: string): Promise<Cat> {
-    const [cat]: Cat[] = await this.queryBus.execute(new CatFindQuery(undefined, undefined, id, undefined));
+    const [cat]: Cat[] = await this.queryBus.execute(
+      new CatFindQuery(undefined, undefined, id, undefined, undefined, undefined),
+    );
 
     if (cat !== undefined) {
       return cat;
@@ -23,19 +25,31 @@ export class CatResolver {
   }
 
   @Query('cats')
-  public async find(): Promise<Cat[]> {
-    return this.queryBus.execute(new CatFindQuery(undefined, undefined, undefined, undefined));
+  public async find(
+    @Args('age') age: number | undefined,
+    @Args('breed') breed: string | undefined,
+    @Args('favouriteFoodId') favouriteFoodId: string | undefined,
+    @Args('name') name: string | undefined,
+    @Args('ownerId') ownerId: string | undefined,
+  ): Promise<Cat[]> {
+    return this.queryBus.execute(new CatFindQuery(age, breed, favouriteFoodId, undefined, name, ownerId));
   }
 
-  @Mutation()
-  public async insertCat(@Args('insertCatInput') insertCat: InsertCat): Promise<Cat> {
-    return this.commandBus.execute(new CatInsertCommand(insertCat.age, insertCat.breed, insertCat.name));
+  @Mutation('insertCat')
+  public async insert(@Args('insertCatInput') insertCat: InsertCat): Promise<Cat> {
+    return this.commandBus.execute(
+      new CatInsertCommand(
+        insertCat.age,
+        insertCat.breed,
+        insertCat.name,
+        insertCat.ownerId,
+        insertCat.favouriteFoodId,
+      ),
+    );
   }
 
-  @Mutation()
-  public async updateCat(@Args('id') id: string, @Args('updateCatInput') updateCat: UpdateCat): Promise<void> {
-    console.log(id);
-    console.log(updateCat.name);
-    console.log(updateCat);
+  @applyDecorators(Resolver('User'), ResolveField('cats'))
+  public async resolveUserCats(@Parent() user: User): Promise<Cat[]> {
+    return this.queryBus.execute(new CatFindQuery(undefined, undefined, undefined, undefined, undefined, user.id));
   }
 }

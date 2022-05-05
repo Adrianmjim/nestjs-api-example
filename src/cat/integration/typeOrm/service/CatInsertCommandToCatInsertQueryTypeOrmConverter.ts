@@ -12,7 +12,13 @@ export class CatInsertCommandToCatInsertQueryTypeOrmConverter
     const output: DeepPartial<CatTypeOrm> = {
       age: input.age,
       breed: input.breed,
+      favouriteFood: {
+        id: input.favouriteFoodId,
+      },
       name: input.name,
+      owner: {
+        id: input.ownerId,
+      },
     };
 
     return output;

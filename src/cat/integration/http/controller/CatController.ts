@@ -36,28 +36,17 @@ export class CatController {
   @ApiBadRequestResponse({ description: 'Bad request' })
   @Post()
   public async create(@Body() body: InsertCatHttpV1): Promise<Cat> {
-    const catInsertCommand: CatInsertCommand = new CatInsertCommand(body.age, body.breed, body.name);
+    const catInsertCommand: CatInsertCommand = new CatInsertCommand(
+      body.age,
+      body.breed,
+      body.favouriteFoodId,
+      body.name,
+      body.ownerId,
+    );
 
     const cat: Cat = await this.commandBus.execute(catInsertCommand);
 
     return cat;
-  }
-
-  @ApiOperation({ description: 'Find cats', summary: 'Find Cats' })
-  @ApiQuery({ name: 'age', required: false })
-  @ApiQuery({ name: 'breed', required: false })
-  @ApiQuery({ name: 'name', required: false })
-  @ApiOkResponse({ description: 'Returns a list of cats', type: [CatHttpV1] })
-  @Get()
-  public async find(
-    @Query('age', ParseIntOrUndefinedPipe) age?: number,
-    @Query('breed') breed?: string,
-    @Query('name') name?: string,
-  ): Promise<Cat[]> {
-    const catFindQuery: CatFindQuery = new CatFindQuery(age, breed, undefined, name);
-    const cats: Cat[] = await this.queryBus.execute(catFindQuery);
-
-    return cats;
   }
 
   @ApiOperation({
@@ -69,7 +58,7 @@ export class CatController {
   @ApiNotFoundResponse({ description: 'Not found' })
   @Get(':id')
   public async findById(@Param('id') id: string): Promise<Cat> {
-    const catFindQuery: CatFindQuery = new CatFindQuery(undefined, undefined, id, undefined);
+    const catFindQuery: CatFindQuery = new CatFindQuery(undefined, undefined, undefined, id, undefined, undefined);
     const [cat]: Cat[] = await this.queryBus.execute(catFindQuery);
 
     if (cat === undefined) {
@@ -85,11 +74,30 @@ export class CatController {
   @Patch(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
   public async update(@Param('id') id: string, @Body() body: UpdateCatHttpV1): Promise<void> {
-    const catFindQuery: CatFindQuery = new CatFindQuery(undefined, undefined, id, undefined);
+    const catFindQuery: CatFindQuery = new CatFindQuery(undefined, undefined, undefined, id, undefined, undefined);
     const catSetCommand: CatSetCommand = new CatSetCommand(body.age, body.breed, body.name);
     const catUpdateCommand: CatUpdateCommand = new CatUpdateCommand(catFindQuery, catSetCommand);
 
     return this.commandBus.execute(catUpdateCommand);
+  }
+
+  @ApiOperation({ description: 'Find cats', summary: 'Find Cats' })
+  @ApiQuery({ name: 'age', required: false })
+  @ApiQuery({ name: 'breed', required: false })
+  @ApiQuery({ name: 'name', required: false })
+  @ApiOkResponse({ description: 'Returns a list of cats', type: [CatHttpV1] })
+  @Get()
+  public async find(
+    @Query('age', ParseIntOrUndefinedPipe) age?: number,
+    @Query('breed') breed?: string,
+    @Query('favouriteFoodId') favouriteFoodId?: string,
+    @Query('name') name?: string,
+    @Query('ownerId') ownerId?: string,
+  ): Promise<Cat[]> {
+    const catFindQuery: CatFindQuery = new CatFindQuery(age, breed, favouriteFoodId, undefined, name, ownerId);
+    const cats: Cat[] = await this.queryBus.execute(catFindQuery);
+
+    return cats;
   }
 
   @ApiOperation({ description: 'Delete cat', summary: 'Delete Cat' })

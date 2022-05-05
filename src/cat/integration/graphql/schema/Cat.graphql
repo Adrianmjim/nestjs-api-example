@@ -3,14 +3,12 @@ scalar UUID
 scalar PositiveInt
 
 type Query {
-  cats(age: PositiveInt, breed: String, name: String): [Cat!]!
+  cats(age: PositiveInt, breed: String, favouriteFoodId: UUID, name: String, ownerId: UUID): [Cat!]!
   cat(id: UUID!): Cat!
 }
 
 type Mutation {
-  insertCat(insertCatInput: InsertCatInput!): Cat!
-  updateCat(id: UUID!, updateCatInput: UpdateCatInput!): Void
-  deleteCat(id: UUID!): Void
+  insertCat(insertCatInput: InsertCat!): Cat!
 }
 
 type Cat {
@@ -22,14 +20,10 @@ type Cat {
   owner: User!
 }
 
-input InsertCatInput {
+input InsertCat {
   age: PositiveInt!
   breed: String!
   name: String!
-}
-
-input UpdateCatInput {
-  age: PositiveInt
-  breed: String
-  name: String
+  ownerId: UUID!
+  favouriteFoodId: UUID!
 }

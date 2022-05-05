@@ -6,7 +6,7 @@ import { Cat } from '../model/Cat';
 import { CatFindQuery } from '../query/CatFindQuery';
 
 @Injectable()
-export class FindCatManager extends FindManager<CatFindQuery, Cat> {
+export class FindCatManager extends FindManager<Cat, CatFindQuery> {
   public constructor(@Inject(FindCatTypeOrmAdapter) findCatTypeOrmAdapter: FindAdapter<Cat, CatFindQuery>) {
     super(findCatTypeOrmAdapter);
   }
