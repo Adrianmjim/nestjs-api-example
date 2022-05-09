@@ -1,4 +1,4 @@
-FROM node:16.4.0-alpine3.10
+FROM node:16.15.0-alpine3.14
 
 RUN mkdir /app && chown node:node /app
 
