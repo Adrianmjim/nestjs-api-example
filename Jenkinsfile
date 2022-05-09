@@ -73,9 +73,6 @@ pipeline {
     success {
       releaseMarker releaseName: env.branch, services: [service (name: "graphql-pet", scopedTo: scopedTo (applications: [application (getApplicationContext())]))]
     }
-
-    failure {
-    }
   }
 }
 
