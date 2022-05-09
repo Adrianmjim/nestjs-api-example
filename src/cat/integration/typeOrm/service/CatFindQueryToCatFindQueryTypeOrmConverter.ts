@@ -17,12 +17,24 @@ export class CatFindQueryToCatFindQueryTypeOrmConverter implements Converter<Cat
       catFindQueryTypeOrm.breed = input.breed;
     }
 
+    if (input.favouriteFoodId !== undefined) {
+      catFindQueryTypeOrm.favouriteFood = {
+        id: input.favouriteFoodId,
+      };
+    }
+
     if (input.id !== undefined) {
       catFindQueryTypeOrm.id = input.id;
     }
 
     if (input.name !== undefined) {
       catFindQueryTypeOrm.name = input.name;
+    }
+
+    if (input.ownerId !== undefined) {
+      catFindQueryTypeOrm.owner = {
+        id: input.ownerId,
+      };
     }
 
     return catFindQueryTypeOrm;
