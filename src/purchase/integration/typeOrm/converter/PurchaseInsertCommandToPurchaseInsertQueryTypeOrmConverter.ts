@@ -10,6 +10,7 @@ export class PurchaseInsertCommandToPurchaseInsertQueryTypeOrmConverter
 {
   public convert(input: PurchaseInsertCommand): DeepPartial<PurchaseTypeOrm> {
     const purchaseInsertQueryTypeOrm: DeepPartial<PurchaseTypeOrm> = {
+      date: new Date(),
       food: {
         id: input.foodId,
       },

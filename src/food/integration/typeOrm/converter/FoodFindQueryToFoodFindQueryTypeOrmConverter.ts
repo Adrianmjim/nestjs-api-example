@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { FindConditions } from 'typeorm';
+import { FindConditions, In } from 'typeorm';
 import { Converter } from '../../../../common/domain/service/Converter';
 import { FoodFindQuery } from '../../../domain/query/FoodFindQuery';
 import { FoodTypeOrm } from '../model/FoodTypeOrm';
@@ -11,8 +11,8 @@ export class FoodFindQueryToFoodFindQueryTypeOrmConverter
   public convert(input: FoodFindQuery): FindConditions<FoodTypeOrm> {
     const foodQueryTypeOrm: FindConditions<FoodTypeOrm> = {};
 
-    if (input.id !== undefined) {
-      foodQueryTypeOrm.id = input.id;
+    if (input.ids !== undefined) {
+      foodQueryTypeOrm.id = In(input.ids);
     }
 
     return foodQueryTypeOrm;

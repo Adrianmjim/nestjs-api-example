@@ -41,9 +41,9 @@ export class CatResolver {
       new CatInsertCommand(
         insertCat.age,
         insertCat.breed,
+        insertCat.favouriteFoodId,
         insertCat.name,
         insertCat.ownerId,
-        insertCat.favouriteFoodId,
       ),
     );
   }

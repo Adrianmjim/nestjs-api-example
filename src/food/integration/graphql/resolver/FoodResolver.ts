@@ -1,7 +1,9 @@
 import { applyDecorators, NotFoundException, Res } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { Args, Context, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import DataLoader from 'dataloader';
 import { Cat } from '../../../../cat/domain/model/Cat';
+import { Purchase } from '../../../../purchase/domain/model/Purchase';
 import { FoodInsertCommand } from '../../../domain/command/FoodInsertCommand';
 import { Food } from '../../../domain/model/Food';
 import { FoodFindQuery } from '../../../domain/query/FoodFindQuery';
@@ -13,7 +15,7 @@ export class FoodResolver {
 
   @Query('food')
   public async findById(@Args('id') id: string): Promise<Food> {
-    const [food]: Food[] = await this.queryBus.execute(new FoodFindQuery(id));
+    const [food]: Food[] = await this.queryBus.execute(new FoodFindQuery([id]));
 
     if (food !== undefined) {
       return food;
@@ -33,13 +35,18 @@ export class FoodResolver {
   }
 
   @applyDecorators(Resolver('Cat'), ResolveField('favouriteFood'))
-  public async resolveCatFavouriteFood(@Parent() cat: Cat): Promise<Food> {
-    const [food]: Food[] = await this.queryBus.execute(new FoodFindQuery(cat.favouriteFoodId));
+  public async resolveCatFavouriteFood(
+    @Parent() cat: Cat,
+    @Context('foodDataLoader') foodDataLoader: DataLoader<string, Food>,
+  ): Promise<Food> {
+    return foodDataLoader.load(cat.favouriteFoodId);
+  }
 
-    if (food !== undefined) {
-      return food;
-    } else {
-      throw new NotFoundException();
-    }
+  @applyDecorators(Resolver('Purchase'), ResolveField('food'))
+  public async resolvePurchaseFood(
+    @Parent() purchase: Purchase,
+    @Context('foodDataLoader') foodDataLoader: DataLoader<string, Food>,
+  ): Promise<Food> {
+    return foodDataLoader.load(purchase.foodId);
   }
 }

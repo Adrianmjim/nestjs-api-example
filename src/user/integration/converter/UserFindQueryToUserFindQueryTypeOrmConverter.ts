@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { FindConditions } from 'typeorm';
+import { FindConditions, In } from 'typeorm';
 import { Converter } from '../../../common/domain/service/Converter';
 import { UserFindQuery } from '../../domain/query/UserFindQuery';
 import { UserTypeOrm } from '../typeOrm/model/UserTypeOrm';
@@ -15,8 +15,8 @@ export class UserFindQueryToUserFindQueryTypeOrmConverter
       userFindQueryTypeOrm.email = input.email;
     }
 
-    if (input.id !== undefined) {
-      userFindQueryTypeOrm.id = input.id;
+    if (input.ids !== undefined) {
+      userFindQueryTypeOrm.id = In(input.ids);
     }
 
     return userFindQueryTypeOrm;
