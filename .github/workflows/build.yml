@@ -38,7 +38,7 @@ jobs:
     - name: Check Tests
       run: npm run test:js:ci:coverage
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+        github-token: ${{ secrets.COVERALLS_TOKEN }}
