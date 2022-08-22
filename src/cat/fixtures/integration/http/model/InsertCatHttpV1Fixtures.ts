@@ -10,6 +10,8 @@ export class InsertCatHttpV1Fixtures {
     insertCatHttpV1.age = catFixture.age;
     insertCatHttpV1.breed = catFixture.breed;
     insertCatHttpV1.name = catFixture.name;
+    insertCatHttpV1.favouriteFoodId = catFixture.favouriteFoodId;
+    insertCatHttpV1.ownerId = catFixture.ownerId;
 
     return insertCatHttpV1;
   }

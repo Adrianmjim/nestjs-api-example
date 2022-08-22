@@ -26,7 +26,13 @@ describe(CatInsertCommandToCatInsertQueryTypeOrmConverter.name, () => {
         const expected: DeepPartial<CatTypeOrm> = {
           age: inputFixture.age,
           breed: inputFixture.breed,
+          favouriteFood: {
+            id: inputFixture.favouriteFoodId,
+          },
           name: inputFixture.name,
+          owner: {
+            id: inputFixture.ownerId,
+          },
         };
 
         expect(result).toStrictEqual(expected);

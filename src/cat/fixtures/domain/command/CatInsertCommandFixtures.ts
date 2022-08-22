@@ -6,9 +6,9 @@ export class CatInsertCommandFixtures {
     return new CatInsertCommand(
       CatFixtures.any.age,
       CatFixtures.any.breed,
+      CatFixtures.any.favouriteFoodId,
       CatFixtures.any.name,
       CatFixtures.any.ownerId,
-      CatFixtures.any.favouriteFoodId,
     );
   }
 }
