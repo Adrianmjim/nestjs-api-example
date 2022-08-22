@@ -23,20 +23,26 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Setup PNPM and install dependencies
+      uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 6.31.0
+        run_install: true
+
     - name: Install dependencies
-      run: npm ci
+      run: pnpm ci
 
     - name: Check Format
-      run: npm run format:check
+      run: pnpm format:check
 
     - name: Check Linter
-      run: npm run linter
+      run: pnpm linter
 
     - name: Build
-      run: npm run build
+      run: pnpm build
 
     - name: Check Tests
-      run: npm run test:js:ci:coverage
+      run: pnpm test:js:ci:coverage
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
