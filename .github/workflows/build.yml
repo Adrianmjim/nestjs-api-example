@@ -40,8 +40,3 @@ jobs:
 
     - name: Check Tests
       run: pnpm test:js:ci:coverage
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
