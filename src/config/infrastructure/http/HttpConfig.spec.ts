@@ -1,13 +1,13 @@
-import { LoadDataAdapter } from '../../../common/domain/adapter/LoadDataAdapter';
+import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
 import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
 import { EnvVariablesFixtures } from '../../../envVariable/fixture/domain/model/EnvVariablesFixtures';
-import { SwaggerConfig } from './SwaggerConfig';
+import { HttpConfig } from './HttpConfig';
 
-describe(SwaggerConfig.name, () => {
+describe(HttpConfig.name, () => {
   describe('when instantiated', () => {
     let envVariablesFixture: EnvVariables;
     let loadEnvVariablesAdapter: jest.Mocked<LoadDataAdapter<EnvVariables>>;
-    let swaggerConfig: SwaggerConfig;
+    let httpConfig: HttpConfig;
 
     beforeAll(() => {
       envVariablesFixture = EnvVariablesFixtures.any;
@@ -15,11 +15,11 @@ describe(SwaggerConfig.name, () => {
         loadData: jest.fn().mockReturnValueOnce(envVariablesFixture),
       };
 
-      swaggerConfig = new SwaggerConfig(loadEnvVariablesAdapter);
+      httpConfig = new HttpConfig(loadEnvVariablesAdapter);
     });
 
     it('should have all its properties set', () => {
-      expect(swaggerConfig.password).toStrictEqual(envVariablesFixture.SWAGGER_PASSWORD);
+      expect(httpConfig.port).toStrictEqual(envVariablesFixture.NODE_PORT);
     });
   });
 });

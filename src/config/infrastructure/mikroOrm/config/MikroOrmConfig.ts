@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { LoadDataAdapter } from '../../../../common/domain/adapter/LoadDataAdapter';
+
+import { LoadDataAdapter } from '../../../../env/domain/adapter/LoadDataAdapter';
 import { EnvVariables } from '../../../../envVariable/domain/model/EnvVariables';
-import { LoadEnvVariablesDotenvAdapter } from '../../../../envVariable/integration/adapter/LoadEnvVariablesDotenvAdapter';
+import { LoadEnvVariablesDotenvAdapter } from '../../../../envVariable/infrastructure/adapter/LoadEnvVariablesDotenvAdapter';
 
 @Injectable()
-export class TypeOrmConfig {
+export class MikroOrmConfig {
   public readonly database: string;
   public readonly host: string;
   public readonly password: string;

@@ -1,9 +1,9 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { LoadDataAdapter } from '../../../common/domain/adapter/LoadDataAdapter';
-import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
-import { LoadEnvVariablesDotenvAdapter } from '../../../envVariable/integration/adapter/LoadEnvVariablesDotenvAdapter';
+import { Inject } from '@nestjs/common';
 
-@Injectable()
+import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
+import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
+import { LoadEnvVariablesDotenvAdapter } from '../../../envVariable/infrastructure/adapter/LoadEnvVariablesDotenvAdapter';
+
 export class HttpConfig {
   public readonly port: number;
 

@@ -1,7 +1,8 @@
 import { Inject } from '@nestjs/common';
-import { LoadDataAdapter } from '../../../common/domain/adapter/LoadDataAdapter';
+
+import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
 import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
-import { LoadEnvVariablesDotenvAdapter } from '../../../envVariable/integration/adapter/LoadEnvVariablesDotenvAdapter';
+import { LoadEnvVariablesDotenvAdapter } from '../../../envVariable/infrastructure/adapter/LoadEnvVariablesDotenvAdapter';
 
 export class SwaggerConfig {
   public readonly password: string;

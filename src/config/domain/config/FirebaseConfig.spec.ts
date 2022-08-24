@@ -1,13 +1,13 @@
-import { LoadDataAdapter } from '../../../common/domain/adapter/LoadDataAdapter';
+import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
 import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
 import { EnvVariablesFixtures } from '../../../envVariable/fixture/domain/model/EnvVariablesFixtures';
-import { HttpConfig } from './HttpConfig';
+import { FirebaseConfig } from './FirebaseConfig';
 
-describe(HttpConfig.name, () => {
+describe(FirebaseConfig.name, () => {
   describe('when instantiated', () => {
     let envVariablesFixture: EnvVariables;
     let loadEnvVariablesAdapter: jest.Mocked<LoadDataAdapter<EnvVariables>>;
-    let httpConfig: HttpConfig;
+    let firebaseConfig: FirebaseConfig;
 
     beforeAll(() => {
       envVariablesFixture = EnvVariablesFixtures.any;
@@ -15,11 +15,11 @@ describe(HttpConfig.name, () => {
         loadData: jest.fn().mockReturnValueOnce(envVariablesFixture),
       };
 
-      httpConfig = new HttpConfig(loadEnvVariablesAdapter);
+      firebaseConfig = new FirebaseConfig(loadEnvVariablesAdapter);
     });
 
     it('should have all its properties set', () => {
-      expect(httpConfig.port).toStrictEqual(envVariablesFixture.NODE_PORT);
+      expect(firebaseConfig.firebaseUrl).toStrictEqual(envVariablesFixture.FIREBASE_URL);
     });
   });
 });
