@@ -5,7 +5,8 @@
       "collectCoverageFrom": ["**/*.ts"],
       "coveragePathIgnorePatterns": [
         "/node_modules/",
-        "/fixtures/"
+        "/fixtures/",
+        "/model/"
       ],
       "coverageThreshold": {
         "global": {
@@ -30,7 +31,8 @@
       "collectCoverageFrom": ["**/*.ts"],
       "coveragePathIgnorePatterns": [
         "/node_modules/",
-        "/fixtures/"
+        "/fixtures/",
+        "/model/"
       ],
       "coverageThreshold": {
         "global": {
