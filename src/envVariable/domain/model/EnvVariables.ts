@@ -4,6 +4,7 @@ export interface EnvVariables {
   DB_PASSWORD: string;
   DB_PORT: number;
   DB_USER: string;
+  FIREBASE_URL: string;
   NODE_PORT: number;
   SWAGGER_PASSWORD: string;
 }

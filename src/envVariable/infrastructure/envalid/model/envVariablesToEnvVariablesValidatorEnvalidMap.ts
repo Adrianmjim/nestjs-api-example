@@ -1,4 +1,5 @@
 import * as envalid from 'envalid';
+
 import { EnvVariables } from '../../../domain/model/EnvVariables';
 
 export const envVariablesToEnvVariablesValidatorEnvalidMap: {
@@ -9,6 +10,7 @@ export const envVariablesToEnvVariablesValidatorEnvalidMap: {
   DB_PASSWORD: envalid.str(),
   DB_PORT: envalid.port(),
   DB_USER: envalid.str(),
+  FIREBASE_URL: envalid.url(),
   NODE_PORT: envalid.port(),
   SWAGGER_PASSWORD: envalid.str(),
 };

@@ -1,6 +1,8 @@
 import path from 'path';
+
 import { Injectable } from '@nestjs/common';
-import { LoadDataDotenvAdapter } from '../../../common/integration/dotenv/adapter/LoadDataDotenvAdapter';
+
+import { LoadDataDotenvAdapter } from '../../../env/infrastructure/dotenv/adapter/LoadDataDotenvAdapter';
 import { EnvVariables } from '../../domain/model/EnvVariables';
 import { envVariablesToEnvVariablesValidatorEnvalidMap } from '../envalid/model/envVariablesToEnvVariablesValidatorEnvalidMap';
 
