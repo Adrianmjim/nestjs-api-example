@@ -14,7 +14,7 @@ import {
 import { ConfigModule } from './config/infrastructure/injection/ConfigModule';
 import { MikroOrmConfig } from './config/infrastructure/mikroOrm/MikroOrmConfig';
 
-function graphQlFactory(queryBus: QueryBus): ApolloDriverConfig {
+function graphQlFactory(_queryBus: QueryBus): ApolloDriverConfig {
   return {
     context: () => ({}),
     resolvers: {
