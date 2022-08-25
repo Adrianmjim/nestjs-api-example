@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
 
-import { LoadDataAdapter } from '../../../../env/domain/adapter/LoadDataAdapter';
-import { EnvVariables } from '../../../../envVariable/domain/model/EnvVariables';
-import { LoadEnvVariablesDotenvAdapter } from '../../../../envVariable/infrastructure/adapter/LoadEnvVariablesDotenvAdapter';
+import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
+import { LoadEnvVariablesDotenvAdapter } from '../../../envVariable/infrastructure/adapter/LoadEnvVariablesDotenvAdapter';
 
 @Injectable()
 export class MikroOrmConfig {

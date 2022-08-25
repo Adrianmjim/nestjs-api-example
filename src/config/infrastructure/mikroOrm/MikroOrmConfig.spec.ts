@@ -1,6 +1,6 @@
-import { LoadDataAdapter } from '../../../../env/domain/adapter/LoadDataAdapter';
-import { EnvVariables } from '../../../../envVariable/domain/model/EnvVariables';
-import { EnvVariablesFixtures } from '../../../../envVariable/fixture/domain/model/EnvVariablesFixtures';
+import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
+import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
+import { EnvVariablesFixtures } from '../../../envVariable/fixture/domain/model/EnvVariablesFixtures';
 import { MikroOrmConfig } from './MikroOrmConfig';
 
 describe(MikroOrmConfig.name, () => {

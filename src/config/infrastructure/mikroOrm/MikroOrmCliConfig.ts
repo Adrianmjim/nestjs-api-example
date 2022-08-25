@@ -1,7 +1,7 @@
 import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
 import { EnvVariables } from '../../../envVariable/domain/model/EnvVariables';
 import { LoadEnvVariablesDotenvAdapter } from '../../../envVariable/infrastructure/adapter/LoadEnvVariablesDotenvAdapter';
-import { MikroOrmConfig } from './config/MikroOrmConfig';
+import { MikroOrmConfig } from './MikroOrmConfig';
 
 const loadEnvVariablesAdapter: LoadDataAdapter<EnvVariables> = new LoadEnvVariablesDotenvAdapter();
 
