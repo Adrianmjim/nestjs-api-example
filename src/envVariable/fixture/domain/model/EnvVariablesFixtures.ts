@@ -8,6 +8,7 @@ export class EnvVariablesFixtures {
       DB_PASSWORD: 'boss',
       DB_PORT: 12345,
       DB_USER: 'random-user',
+      FIREBASE_URL: 'firebase-url',
       NODE_PORT: 23456,
       SWAGGER_PASSWORD: 'swagger-password',
     };

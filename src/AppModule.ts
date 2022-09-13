@@ -1,8 +1,9 @@
+import { MikroORM } from '@mikro-orm/core';
+import { MikroOrmModule, MikroOrmModuleOptions } from '@mikro-orm/nestjs';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { Module } from '@nestjs/common';
+import { Module, OnModuleInit } from '@nestjs/common';
 import { CqrsModule, QueryBus } from '@nestjs/cqrs';
 import { GraphQLModule } from '@nestjs/graphql';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import {
   DateTimeResolver,
   EmailAddressResolver,
@@ -10,37 +11,12 @@ import {
   UUIDResolver,
   VoidResolver,
 } from 'graphql-scalars';
-import { CatModule } from './cat/integration/injection/CatModule';
-import { CatTypeOrm } from './cat/integration/typeOrm/model/CatTypeOrm';
-import { ConfigModule } from './config/integration/injector/ConfigModule';
-import { TypeOrmConfig } from './config/integration/typeOrm/service/TypeOrmConfig';
-import { createFoodDataLoader } from './food/integration/graphql/dataloader/CreateFoodDataLoader';
-import { FoodModule } from './food/integration/injector/FoodModule';
-import { FoodTypeOrm } from './food/integration/typeOrm/model/FoodTypeOrm';
-import { PurchaseModule } from './purchase/integration/injector/PurchaseModule';
-import { PurchaseTypeOrm } from './purchase/integration/typeOrm/model/PurchaseTypeOrm';
-import { createUserDataLoader } from './user/integration/graphql/dataloader/CreateUserDataLoader';
-import { UserModule } from './user/integration/injector/UserModule';
-import { UserTypeOrm } from './user/integration/typeOrm/model/UserTypeOrm';
+import { ConfigModule } from './config/infrastructure/injection/ConfigModule';
+import { MikroOrmConfig } from './config/infrastructure/mikroOrm/MikroOrmConfig';
 
-function typeOrmFactory(typeOrmConfig: TypeOrmConfig): TypeOrmModuleOptions {
+function graphQlFactory(_queryBus: QueryBus): ApolloDriverConfig {
   return {
-    database: typeOrmConfig.database,
-    entities: [CatTypeOrm, FoodTypeOrm, PurchaseTypeOrm, UserTypeOrm],
-    host: typeOrmConfig.host,
-    password: typeOrmConfig.password,
-    port: typeOrmConfig.port,
-    type: 'postgres',
-    username: typeOrmConfig.user,
-  };
-}
-
-function graphQlFactory(queryBus: QueryBus): ApolloDriverConfig {
-  return {
-    context: () => ({
-      foodDataLoader: createFoodDataLoader(queryBus),
-      userDataLoader: createUserDataLoader(queryBus),
-    }),
+    context: () => ({}),
     resolvers: {
       DateTime: DateTimeResolver,
       EmailAddress: EmailAddressResolver,
@@ -52,6 +28,23 @@ function graphQlFactory(queryBus: QueryBus): ApolloDriverConfig {
   };
 }
 
+function mikroOrmFactory(mikroOrmConfig: MikroOrmConfig): MikroOrmModuleOptions {
+  return {
+    autoLoadEntities: true,
+    dbName: mikroOrmConfig.database,
+    forceUndefined: true,
+    host: mikroOrmConfig.host,
+    migrations: {
+      path: 'dist/common/infrastructure/mikroOrm/migrations',
+      pathTs: 'src/common/infrastructure/mikroOrm/migrations',
+    },
+    password: mikroOrmConfig.password,
+    port: mikroOrmConfig.port,
+    type: 'postgresql',
+    user: mikroOrmConfig.user,
+  };
+}
+
 @Module({
   imports: [
     GraphQLModule.forRootAsync<ApolloDriverConfig>({
@@ -60,15 +53,17 @@ function graphQlFactory(queryBus: QueryBus): ApolloDriverConfig {
       inject: [QueryBus],
       useFactory: graphQlFactory,
     }),
-    CatModule,
-    FoodModule,
-    PurchaseModule,
-    UserModule,
-    TypeOrmModule.forRootAsync({
+    MikroOrmModule.forRootAsync({
       imports: [ConfigModule],
-      inject: [TypeOrmConfig],
-      useFactory: typeOrmFactory,
+      inject: [MikroOrmConfig],
+      useFactory: mikroOrmFactory,
     }),
   ],
 })
-export class AppModule {}
+export class AppModule implements OnModuleInit {
+  public constructor(private readonly mikroOrm: MikroORM) {}
+
+  public async onModuleInit() {
+    await this.mikroOrm.getMigrator().up();
+  }
+}
