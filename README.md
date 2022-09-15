@@ -1,6 +1,10 @@
 # Nestjs Api Example 
-[![Verification status](https://github.com/Adrianmjim/nestjs-api-example/workflows/Build/badge.svg)](https://github.com/Adrianmjim/nestjs-api-example/workflows/Build/badge.svg)
-[![codecov](https://codecov.io/gh/Adrianmjim/nestjs-api-example/branch/main/graph/badge.svg?token=NZTOJVAXEF)](https://codecov.io/gh/Adrianmjim/nestjs-api-example)
+
+[![CI status](https://github.com/Adrianmjim/nestjs-api-example/workflows/CI/badge.svg)](https://github.com/Adrianmjim/nestjs-api-example/workflows/CI/badge.svg)
+[![Codecov](https://codecov.io/gh/Adrianmjim/nestjs-api-example/branch/main/graph/badge.svg?token=NZTOJVAXEF)](https://codecov.io/gh/Adrianmjim/nestjs-api-example)
+[![Maintainability](https://api.codeclimate.com/v1/badges/45beec08089bb0709306/maintainability)](https://codeclimate.com/github/Adrianmjim/nestjs-api-example/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/45beec08089bb0709306/test_coverage)](https://codeclimate.com/github/Adrianmjim/nestjs-api-example/test_coverage)
+
 
 HTTP REST API pet project built on top of Nestjs using DDD, CQRS, TypeOrm and PostgreSQL
 
