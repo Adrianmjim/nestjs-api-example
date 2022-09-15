@@ -1,4 +1,5 @@
 import { randomUUID } from 'crypto';
+
 import { Entity, OptionalProps, PrimaryKey, Property } from '@mikro-orm/core';
 
 @Entity({ abstract: true })

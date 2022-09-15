@@ -1,5 +1,6 @@
 import { QueryBus } from '@nestjs/cqrs';
 import DataLoader from 'dataloader';
+
 import { Food } from '../../../domain/model/Food';
 import { FoodFindQuery } from '../../../domain/query/FoodFindQuery';
 
