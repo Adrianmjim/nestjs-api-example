@@ -21,11 +21,9 @@ export abstract class BaseEntityInsertOneCommandToBaseEntityInsertOneQueryMikroO
   }
 
   private async convertToBaseEntityInsertOneQueryMikroOrm(
-    input: TInput,
+    _input: TInput,
   ): Promise<RequiredEntityData<BaseEntityMikroOrm>> {
-    const baseEntityInsertOneQueryMikroOrm: RequiredEntityData<BaseEntityMikroOrm> = {
-      createdById: input.createdById,
-    };
+    const baseEntityInsertOneQueryMikroOrm: RequiredEntityData<BaseEntityMikroOrm> = {};
 
     return baseEntityInsertOneQueryMikroOrm;
   }

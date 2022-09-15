@@ -11,6 +11,7 @@ import {
   UUIDResolver,
   VoidResolver,
 } from 'graphql-scalars';
+
 import { ConfigModule } from './config/infrastructure/injection/ConfigModule';
 import { MikroOrmConfig } from './config/infrastructure/mikroOrm/MikroOrmConfig';
 
