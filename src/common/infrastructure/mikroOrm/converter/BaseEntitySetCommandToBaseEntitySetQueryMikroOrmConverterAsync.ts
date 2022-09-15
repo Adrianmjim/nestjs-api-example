@@ -21,10 +21,8 @@ export abstract class BaseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterA
     return output;
   }
 
-  private async convertToBaseEntitySetQueryMikroOrm(input: TInput): Promise<EntityData<BaseEntityMikroOrm>> {
-    const output: EntityData<BaseEntityMikroOrm> = {
-      updatedById: input.updatedById,
-    };
+  private async convertToBaseEntitySetQueryMikroOrm(_input: TInput): Promise<EntityData<BaseEntityMikroOrm>> {
+    const output: EntityData<BaseEntityMikroOrm> = {};
 
     return output;
   }

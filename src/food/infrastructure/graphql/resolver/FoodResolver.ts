@@ -1,10 +1,11 @@
-import { applyDecorators, NotFoundException, Res } from '@nestjs/common';
+import { applyDecorators, NotFoundException } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { Args, Context, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import DataLoader from 'dataloader';
+
 import { Cat } from '../../../../cat/domain/model/Cat';
 import { Purchase } from '../../../../purchase/domain/model/Purchase';
-import { FoodInsertCommand } from '../../../domain/command/FoodInsertCommand';
+import { FoodInsertOneCommand } from '../../../domain/command/FoodInsertOneCommand';
 import { Food } from '../../../domain/model/Food';
 import { FoodFindQuery } from '../../../domain/query/FoodFindQuery';
 import { InsertFood } from '../input/InsertFood';
@@ -31,7 +32,7 @@ export class FoodResolver {
 
   @Mutation('insertFood')
   public async insert(@Args('insertFood') insertFood: InsertFood): Promise<Food> {
-    return this.commandBus.execute(new FoodInsertCommand(insertFood.amount, insertFood.name, insertFood.prize));
+    return this.commandBus.execute(new FoodInsertOneCommand(insertFood.amount, insertFood.name, insertFood.prize));
   }
 
   @applyDecorators(Resolver('Cat'), ResolveField('favouriteFood'))

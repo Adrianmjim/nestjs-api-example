@@ -8,7 +8,8 @@ type Query {
 }
 
 type Mutation {
-  insertUser(insertUser: InsertUser): User!
+  insertUser(insertUser: InsertUser!): User!
+  updateUser(updateUser: UpdateUser!): 
 }
 
 type User {
@@ -17,8 +18,6 @@ type User {
   id: UUID!
   name: String!
   surname: String!
-  cats: [Cat!]!
-  purchases: [Purchase!]!
 }
 
 input InsertUser {
@@ -26,4 +25,11 @@ input InsertUser {
   email: EmailAddress!
   name: String!
   surname: String!
+}
+
+input UpdateUser {
+  age: PositiveInt
+  email: EmailAddress
+  name: String
+  surname: String
 }

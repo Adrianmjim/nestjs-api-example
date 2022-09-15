@@ -1,5 +1,5 @@
-import { Field, InputType } from '@nestjs/graphql';
-import { IsNumber, Max } from 'class-validator';
+import { Field } from '@nestjs/graphql';
+import { Max } from 'class-validator';
 
 export class UpdateCat {
   @Max(9)

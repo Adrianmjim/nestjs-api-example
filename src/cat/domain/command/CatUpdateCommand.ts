@@ -1,4 +1,5 @@
 import { ICommand } from '@nestjs/cqrs';
+
 import { CatFindQuery } from '../query/CatFindQuery';
 import { CatSetCommand } from './CatSetCommand';
 

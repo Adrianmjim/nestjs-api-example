@@ -11,8 +11,8 @@ import {
   ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
+
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
-import { ParseIntOrUndefinedPipe } from '../../../../common/integration/http/pipe/ParseIntOrUndefinedPipe';
 import { CatDeleteCommand } from '../../../domain/command/CatDeleteCommand';
 import { CatInsertCommand } from '../../../domain/command/CatInsertCommand';
 import { CatSetCommand } from '../../../domain/command/CatSetCommand';
@@ -88,7 +88,7 @@ export class CatController {
   @ApiOkResponse({ description: 'Returns a list of cats', type: [CatHttpV1] })
   @Get()
   public async find(
-    @Query('age', ParseIntOrUndefinedPipe) age?: number,
+    @Query('age') age?: number,
     @Query('breed') breed?: string,
     @Query('favouriteFoodId') favouriteFoodId?: string,
     @Query('name') name?: string,

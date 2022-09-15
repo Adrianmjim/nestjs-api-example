@@ -10,7 +10,7 @@ interface ModelTest {
 }
 
 describe(FindOneQueryHandler.name, () => {
-  let findOneManagerMock: jest.Mocked<ManagerAsync<QueryTest, ModelTest | null>>;
+  let findOneManagerMock: jest.Mocked<ManagerAsync<QueryTest, ModelTest | undefined>>;
   let findOneQueryHandler: FindOneQueryHandler<QueryTest, ModelTest>;
 
   beforeAll(() => {

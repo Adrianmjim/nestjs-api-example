@@ -2,9 +2,10 @@ import { applyDecorators, NotFoundException } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { Args, Context, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import DataLoader from 'dataloader';
+
 import { Cat } from '../../../../cat/domain/model/Cat';
 import { Purchase } from '../../../../purchase/domain/model/Purchase';
-import { UserInsertCommand } from '../../../domain/command/UserInsertCommand';
+import { UserInsertOneCommand } from '../../../domain/command/UserInsertOneCommand';
 import { User } from '../../../domain/model/User';
 import { UserFindQuery } from '../../../domain/query/UserFindQuery';
 import { InsertUser } from '../model/InsertUser';
@@ -32,7 +33,7 @@ export class UserResolver {
   @Mutation('insertUser')
   public async insert(@Args('insertUser') insertUser: InsertUser): Promise<User> {
     return this.commandBus.execute(
-      new UserInsertCommand(insertUser.age, insertUser.email, insertUser.name, insertUser.surname),
+      new UserInsertOneCommand(insertUser.age, insertUser.email, insertUser.name, insertUser.surname),
     );
   }
 

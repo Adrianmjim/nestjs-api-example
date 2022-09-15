@@ -5,14 +5,14 @@ import { Manager } from '../../domain/manager/Manager';
 import { ManagerAsync } from '../../domain/manager/ManagerAsync';
 
 @Injectable()
-export class FindOneQueryHandler<TQuery extends IQuery, TModel> implements IQueryHandler<TQuery, TModel | null> {
+export class FindOneQueryHandler<TQuery extends IQuery, TModel> implements IQueryHandler<TQuery, TModel | undefined> {
   public constructor(
-    private readonly findOneManager: Manager<TQuery, TModel | null> | ManagerAsync<TQuery, TModel | null>,
+    private readonly findOneManager: Manager<TQuery, TModel | undefined> | ManagerAsync<TQuery, TModel | undefined>,
   ) {}
 
-  public async execute(query: TQuery): Promise<TModel | null> {
-    const modelOrNull: TModel | null = await this.findOneManager.manage(query);
+  public async execute(query: TQuery): Promise<TModel | undefined> {
+    const modelOrUndefined: TModel | undefined = await this.findOneManager.manage(query);
 
-    return modelOrNull;
+    return modelOrUndefined;
   }
 }

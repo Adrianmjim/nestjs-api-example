@@ -30,7 +30,7 @@ describe(BaseEntityMikroOrmToBaseEntityConverterAsync.name, () => {
   });
 
   describe('.convert()', () => {
-    describe('when called and BaseEntityMikroOrm.updatedBy is undefined', () => {
+    describe('when called', () => {
       let baseEntityMikroOrmFixture: BaseEntityMikroOrm;
       let baseEntityFixture: BaseEntity;
       let result: unknown;
@@ -38,34 +38,6 @@ describe(BaseEntityMikroOrmToBaseEntityConverterAsync.name, () => {
       beforeAll(async () => {
         baseEntityMikroOrmFixture = BaseEntityMikroOrmFixtures.any;
         baseEntityFixture = BaseEntityFixtures.any;
-
-        convertToEntityMock.mockResolvedValueOnce(baseEntityFixture);
-
-        result = await baseEntityMikroOrmToBaseEntityConverterAsyncTest.convert(baseEntityMikroOrmFixture);
-      });
-
-      afterAll(() => {
-        jest.clearAllMocks();
-      });
-
-      it('should call convertToEntity()', () => {
-        expect(convertToEntityMock).toHaveBeenCalledTimes(1);
-        expect(convertToEntityMock).toHaveBeenCalledWith(baseEntityMikroOrmFixture, baseEntityFixture);
-      });
-
-      it('should return a BaseEntity', () => {
-        expect(result).toStrictEqual(baseEntityFixture);
-      });
-    });
-
-    describe('when called and BaseEntityMikroOrm.updatedBy is not undefined', () => {
-      let baseEntityMikroOrmFixture: BaseEntityMikroOrm;
-      let baseEntityFixture: BaseEntity;
-      let result: unknown;
-
-      beforeAll(async () => {
-        baseEntityMikroOrmFixture = BaseEntityMikroOrmFixtures.withUpdatedAtAndUpdatedBy;
-        baseEntityFixture = BaseEntityFixtures.withUpdatedAtAndUpdatedById;
 
         convertToEntityMock.mockResolvedValueOnce(baseEntityFixture);
 
