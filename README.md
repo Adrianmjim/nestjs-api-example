@@ -1,6 +1,14 @@
 # Nestjs Api Example 
-[![Verification status](https://github.com/Adrianmjim/nestjs-api-example/workflows/Build/badge.svg)](https://github.com/Adrianmjim/nestjs-api-example/workflows/Build/badge.svg)
-[![codecov](https://codecov.io/gh/Adrianmjim/nestjs-api-example/branch/main/graph/badge.svg?token=NZTOJVAXEF)](https://codecov.io/gh/Adrianmjim/nestjs-api-example)
+
+[![CI status](https://github.com/Adrianmjim/nestjs-api-example/workflows/CI/badge.svg)](https://github.com/Adrianmjim/nestjs-api-example/workflows/CI/badge.svg)
+[![Codecov](https://codecov.io/gh/Adrianmjim/nestjs-api-example/branch/main/graph/badge.svg?token=NZTOJVAXEF)](https://codecov.io/gh/Adrianmjim/nestjs-api-example)
+[![Maintainability](https://api.codeclimate.com/v1/badges/45beec08089bb0709306/maintainability)](https://codeclimate.com/github/Adrianmjim/nestjs-api-example/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/45beec08089bb0709306/test_coverage)](https://codeclimate.com/github/Adrianmjim/nestjs-api-example/test_coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1e98379fc0124b81a3ead8785c02d78d)](https://www.codacy.com/gh/Adrianmjim/nestjs-api-example/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Adrianmjim/nestjs-api-example&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/1e98379fc0124b81a3ead8785c02d78d)](https://www.codacy.com/gh/Adrianmjim/nestjs-api-example/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Adrianmjim/nestjs-api-example&utm_campaign=Badge_Coverage)
+[![Coverage Status](https://coveralls.io/repos/github/Adrianmjim/nestjs-api-example/badge.svg)](https://coveralls.io/github/Adrianmjim/nestjs-api-example)
+[![Coverage Status](https://coveralls.io/repos/github/Adrianmjim/nestjs-api-example/badge.svg)](https://coveralls.io/github/Adrianmjim/nestjs-api-example)
+
 
 HTTP REST API pet project built on top of Nestjs using DDD, CQRS, TypeOrm and PostgreSQL
 
