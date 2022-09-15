@@ -1,5 +1,6 @@
 # Nestjs Api Example 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/acb933323b2148578f31b0c4c9384c08)](https://app.codacy.com/gh/Adrianmjim/nestjs-api-example?utm_source=github.com&utm_medium=referral&utm_content=Adrianmjim/nestjs-api-example&utm_campaign=Badge_Grade_Settings)
 [![CI status](https://github.com/Adrianmjim/nestjs-api-example/workflows/CI/badge.svg)](https://github.com/Adrianmjim/nestjs-api-example/workflows/CI/badge.svg)
 [![Codecov](https://codecov.io/gh/Adrianmjim/nestjs-api-example/branch/main/graph/badge.svg?token=NZTOJVAXEF)](https://codecov.io/gh/Adrianmjim/nestjs-api-example)
 [![Maintainability](https://api.codeclimate.com/v1/badges/45beec08089bb0709306/maintainability)](https://codeclimate.com/github/Adrianmjim/nestjs-api-example/maintainability)
