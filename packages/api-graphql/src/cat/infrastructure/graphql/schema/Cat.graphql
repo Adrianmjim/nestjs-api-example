@@ -1,0 +1,37 @@
+scalar Void
+scalar UUID
+scalar PositiveInt
+
+type Query {
+  cat(id: UUID!): Cat!
+  cats(): [Cat!]!
+  paginateCats(): PaginationCat!
+}
+
+type Mutation {
+  insertOneCat(insertOneCatInput: InsertOneCat!): Cat!
+  updateOneCat(updateOneCatInput: UpdateOneCat!): Void
+  deleteOneCat(id: UUID!): Void
+} 
+
+type Cat implements BaseEntity {
+  bornDate: date!
+  color: String!
+  name: String!
+}
+
+type PaginationCat implements Pagination {
+  items: [Cat!]!
+}
+
+input InsertOneCat {
+  bornDate: date!
+  color: String!
+  name: String!
+}
+
+input UpdateOneCat {
+  bornDate: date
+  color: String
+  name: String
+}
