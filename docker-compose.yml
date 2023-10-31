@@ -12,23 +12,38 @@ services:
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
 
-  api-grpc:
+  api-graphql:
     build:
+      target: api-graphql
       context: .
       dockerfile: Dockerfile
-    command: pnpm start:api-grpc:prod
+    command: ls lib
     env_file:
       - .env
     depends_on:
       - database
     ports:
-      - 5000:5000
+      - 5001:5001
+
+  api-grpc:
+    build:
+      target: api-grpc
+      context: .
+      dockerfile: Dockerfile
+    command: pnpm start:prod
+    env_file:
+      - .env
+    depends_on:
+      - database
+    ports:
+      - 5002:5002
 
   api-rest:
     build:
+      target: api-rest
       context: .
       dockerfile: Dockerfile
-    command: pnpm start:api-rest:prod
+    command: pnpm start:prod
     env_file:
       - .env
     depends_on:

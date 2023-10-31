@@ -12,9 +12,7 @@
     "test:js:coverage": "turbo run test:js:coverage",
     "test:uncommitted": "turbo run test:uncommitted --filter [HEAD]",
     "test:unit:js": "turbo run test:unit:js",
-    "test": "turbo run test",
-    "start:api-grpc:prod": "TZ=$npm_package_config_TZ node packages/api-grpc/lib/main.js",
-    "start:api-rest:prod": "TZ=$npm_package_config_TZ node packages/api-rest/lib/main.js"
+    "test": "turbo run test"
   },
   "repository": {
     "type": "git",

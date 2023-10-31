@@ -4,8 +4,7 @@ scalar PositiveInt
 
 type Query {
   cat(id: UUID!): Cat!
-  cats(): [Cat!]!
-  paginateCats(): PaginationCat!
+  cats(): PaginationCat!
 }
 
 type Mutation {
