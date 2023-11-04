@@ -1,10 +1,10 @@
 import { status } from '@grpc/grpc-js';
-import { Controller, UsePipes, ValidationPipe } from '@nestjs/common';
-import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { GrpcMethod, RpcException } from '@nestjs/microservices';
 import { CatDeleteCommand } from '@nestjs-api-example/core/commands';
 import { Cat } from '@nestjs-api-example/core/models';
 import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
+import { Controller, UsePipes, ValidationPipe } from '@nestjs/common';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { GrpcMethod, RpcException } from '@nestjs/microservices';
 
 import { DeleteOneCatGrpc } from '../model/DeleteOneCatGrpc';
 

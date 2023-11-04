@@ -1,6 +1,6 @@
-import { CatSetCommandFixtures } from './CatSetCommandFixtures';
 import { CatUpdateOneCommand } from '../../../domain/command/CatUpdateOneCommand';
 import { CatFindQueryFixtures } from '../query/CatFindQueryFixtures';
+import { CatSetCommandFixtures } from './CatSetCommandFixtures';
 
 export class CatUpdateOneCommandFixtures {
   public static get any(): CatUpdateOneCommand {

@@ -1,8 +1,8 @@
+import { CatInsertOneCommand } from '@nestjs-api-example/core/commands';
+import { Cat } from '@nestjs-api-example/core/models';
 import { Controller, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { GrpcMethod } from '@nestjs/microservices';
-import { CatInsertOneCommand } from '@nestjs-api-example/core/commands';
-import { Cat } from '@nestjs-api-example/core/models';
 
 import { InsertOneCatGrpc } from '../model/InsertOneCatGrpc';
 

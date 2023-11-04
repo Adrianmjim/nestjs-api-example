@@ -2,11 +2,11 @@ import { beforeAll, describe, expect, it } from '@jest/globals';
 
 import { ObjectQuery } from '@mikro-orm/core';
 
-import { CatDeleteCommandToCatDeleteQueryMikroOrmConverterAsync } from './CatDeleteCommandToCatDeleteQueryMikroOrmConverterAsync';
 import { CatDeleteCommand } from '../../../domain/command/CatDeleteCommand';
 import { CatDeleteCommandFixtures } from '../../../fixtures/domain/command/CatDeleteCommandFixtures';
 import { CatDeleteQueryMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/command/CatDeleteQueryMikroOrmFixtures';
 import { CatMikroOrm } from '../model/CatMikroOrm';
+import { CatDeleteCommandToCatDeleteQueryMikroOrmConverterAsync } from './CatDeleteCommandToCatDeleteQueryMikroOrmConverterAsync';
 
 describe(CatDeleteCommandToCatDeleteQueryMikroOrmConverterAsync.name, () => {
   let catDeleteCommandToCatDeleteQueryMikroOrmConverterAsync: CatDeleteCommandToCatDeleteQueryMikroOrmConverterAsync;

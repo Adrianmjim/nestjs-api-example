@@ -2,8 +2,8 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { EntityRepository, ObjectQuery } from '@mikro-orm/core';
 
-import { CountMikroOrmAdapter } from './CountMikroOrmAdapter';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
+import { CountMikroOrmAdapter } from './CountMikroOrmAdapter';
 
 interface QueryTest {
   foo: unknown;

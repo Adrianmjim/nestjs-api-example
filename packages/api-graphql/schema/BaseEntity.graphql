@@ -1,10 +1,11 @@
 scalar UUID
 scalar PositiveInt
+scalar DateTime
 
 interface BaseEntity {
-  createdAt: date!
+  createdAt: DateTime!
   id: UUID!
-  updatedAt: date
+  updatedAt: DateTime
   version: PositiveInt!
 }
 

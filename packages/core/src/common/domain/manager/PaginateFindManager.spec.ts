@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { PaginateFindManager } from './PaginateFindManager';
 import { PaginateFindAdapter } from '../adapter/PaginateFindAdapter';
 import { Pagination } from '../model/Pagination';
+import { PaginateFindManager } from './PaginateFindManager';
 
 interface QueryTest {
   foo: unknown;

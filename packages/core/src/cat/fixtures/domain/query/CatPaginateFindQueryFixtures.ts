@@ -1,5 +1,5 @@
-import { CatFindQueryFixtures } from './CatFindQueryFixtures';
 import { CatPaginateFindQuery } from '../../../domain/query/CatPaginateFindQuery';
+import { CatFindQueryFixtures } from './CatFindQueryFixtures';
 
 export class CatPaginateFindQueryFixtures {
   public static get any(): CatPaginateFindQuery {

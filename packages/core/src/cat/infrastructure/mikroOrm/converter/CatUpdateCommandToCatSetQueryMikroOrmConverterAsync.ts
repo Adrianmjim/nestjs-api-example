@@ -1,12 +1,12 @@
 import { EntityData } from '@mikro-orm/core';
 import { Injectable, Inject } from '@nestjs/common';
 
-import { CatUpdateOneCommandToCatSetQueryMikroOrmConverterAsync } from './CatUpdateOneCommandToCatSetQueryMikroOrmConverterAsync';
 import { ConverterAsync } from '../../../../common/domain/converter/ConverterAsync';
 import { BaseEntityUpdateCommandToBaseEntitySetQueryMikroOrmConverterAsync } from '../../../../common/infrastructure/mikroOrm/converter/BaseEntityUpdateCommandToBaseEntitySetQueryMikroOrmConverterAsync';
 import { CatUpdateCommand } from '../../../domain/command/CatUpdateCommand';
 import { CatUpdateOneCommand } from '../../../domain/command/CatUpdateOneCommand';
 import { CatMikroOrm } from '../model/CatMikroOrm';
+import { CatUpdateOneCommandToCatSetQueryMikroOrmConverterAsync } from './CatUpdateOneCommandToCatSetQueryMikroOrmConverterAsync';
 
 @Injectable()
 export class CatUpdateCommandToCatSetQueryMikroOrmConverterAsync extends BaseEntityUpdateCommandToBaseEntitySetQueryMikroOrmConverterAsync<

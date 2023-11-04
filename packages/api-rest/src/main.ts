@@ -1,8 +1,8 @@
+import { AppConfig } from '@nestjs-api-example/core/models';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
-import { AppConfig } from '@nestjs-api-example/core/models';
 
 import { AppModule } from './AppModule';
 

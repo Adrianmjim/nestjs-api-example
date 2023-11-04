@@ -1,9 +1,9 @@
 import { status } from '@grpc/grpc-js';
+import { Cat } from '@nestjs-api-example/core/models';
+import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 import { Controller, UsePipes, ValidationPipe } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 import { GrpcMethod, RpcException } from '@nestjs/microservices';
-import { Cat } from '@nestjs-api-example/core/models';
-import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 
 import { FindOneCatGrpc } from '../model/FindOneCatGrpc';
 

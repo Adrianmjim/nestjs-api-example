@@ -2,8 +2,8 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { EntityRepository, FindOptions, Loaded, ObjectQuery } from '@mikro-orm/core';
 
-import { FindMikroOrmAdapter } from './FindMikroOrmAdapter';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
+import { FindMikroOrmAdapter } from './FindMikroOrmAdapter';
 
 interface QueryTest {
   foo: unknown;

@@ -5,8 +5,8 @@ import { beforeAll, describe, expect, it } from '@jest/globals';
 
 import { str } from 'envalid';
 
-import { LoadDataDotenvAdapter } from './LoadDataDotenvAdapter';
 import { EnvToEnvValidatorEnvalidMap } from '../../envalid/model/EnvToEnvValidatorEnvalidMap';
+import { LoadDataDotenvAdapter } from './LoadDataDotenvAdapter';
 
 interface DataTest {
   foo: string;

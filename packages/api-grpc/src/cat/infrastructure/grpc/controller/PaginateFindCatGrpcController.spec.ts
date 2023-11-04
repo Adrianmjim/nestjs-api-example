@@ -1,14 +1,14 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { QueryBus } from '@nestjs/cqrs';
 import { Cat, Pagination } from '@nestjs-api-example/core/models';
 import { CatPaginateFindQuery } from '@nestjs-api-example/core/queries';
+import { QueryBus } from '@nestjs/cqrs';
 
-import { PaginateFindCatGrpcController } from './PaginateFindCatGrpcController';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { CatPaginateFindQueryFixtures } from '../../../fixtures/domain/query/CatPaginateFindQueryFixtures';
 import { PaginateFindCatGrpcFixtures } from '../../../fixtures/infrastructure/grpc/model/PaginateFindCatGrpcFixtures';
 import { PaginateFindCatGrpc } from '../model/PaginateFindCatGrpc';
+import { PaginateFindCatGrpcController } from './PaginateFindCatGrpcController';
 
 describe(PaginateFindCatGrpcController.name, () => {
   let paginateFindCatGrpcController: PaginateFindCatGrpcController;

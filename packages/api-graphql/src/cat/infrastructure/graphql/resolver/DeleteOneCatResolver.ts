@@ -1,8 +1,8 @@
-import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { Args, Resolver } from '@nestjs/graphql';
 import { CatDeleteCommand } from '@nestjs-api-example/core/commands';
 import { Cat } from '@nestjs-api-example/core/models';
 import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { Args, Resolver } from '@nestjs/graphql';
 
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
 

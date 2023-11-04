@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { CountManager } from './CountManager';
 import { CountAdapter } from '../adapter/CountAdapter';
+import { CountManager } from './CountManager';
 
 interface QueryTest {
   foo: unknown;

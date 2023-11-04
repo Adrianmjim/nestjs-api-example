@@ -1,3 +1,6 @@
+import { CatDeleteCommand } from '@nestjs-api-example/core/commands';
+import { Cat } from '@nestjs-api-example/core/models';
+import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 import { Controller, Delete, HttpCode, HttpStatus, Param, ParseUUIDPipe } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import {
@@ -9,9 +12,6 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
-import { CatDeleteCommand } from '@nestjs-api-example/core/commands';
-import { Cat } from '@nestjs-api-example/core/models';
-import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
 

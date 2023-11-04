@@ -1,9 +1,9 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { DatabaseConfig } from './DatabaseConfig';
 import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
 import { DatabaseEnvVariables } from '../../../envVariable/domain/model/DatabaseEnvVariables';
 import { DatabaseEnvVariablesFixtures } from '../../../envVariable/fixtures/domain/model/DatabaseEnvVariablesFixtures';
+import { DatabaseConfig } from './DatabaseConfig';
 
 describe(DatabaseConfig.name, () => {
   describe('when instantiated', () => {

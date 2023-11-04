@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { UpdateOneCommandHandler } from './UpdateOneCommandHandler';
 import { ManagerAsync } from '../../domain/manager/ManagerAsync';
+import { UpdateOneCommandHandler } from './UpdateOneCommandHandler';
 
 interface CommandTest {
   foo: unknown;

@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { FindOneManager } from './FindOneManager';
 import { FindOneAdapter } from '../adapter/FindOneAdapter';
+import { FindOneManager } from './FindOneManager';
 
 interface QueryTest {
   foo: unknown;

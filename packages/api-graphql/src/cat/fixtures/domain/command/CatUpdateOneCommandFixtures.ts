@@ -1,7 +1,7 @@
 import { CatUpdateOneCommand } from '@nestjs-api-example/core/commands';
 
-import { CatSetCommandFixtures } from './CatSetCommandFixtures';
 import { CatFindQueryFixtures } from '../query/CatFindQueryFixtures';
+import { CatSetCommandFixtures } from './CatSetCommandFixtures';
 
 export class CatUpdateOneCommandFixtures {
   public static get any(): CatUpdateOneCommand {

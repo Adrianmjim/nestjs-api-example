@@ -2,13 +2,13 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { RequiredEntityData } from '@mikro-orm/core';
 
-import { BaseEntityInsertCommandToBaseEntityInsertQueryMikroOrmConverterAsync } from './BaseEntityInsertCommandToBaseEntityInsertQueryMikroOrmConverterAsync';
 import { BaseEntityInsertCommand } from '../../../domain/command/BaseEntityInsertCommand';
 import { BaseEntityInsertOneCommand } from '../../../domain/command/BaseEntityInsertOneCommand';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { BaseEntityInsertCommandFixtures } from '../../../fixtures/domain/command/BaseEntityInsertCommandFixtures';
 import { BaseEntityInsertQueryMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/command/BaseEntityInsertQueryMikroOrmFixtures';
 import { BaseEntityMikroOrm } from '../model/BaseEntityMikroOrm';
+import { BaseEntityInsertCommandToBaseEntityInsertQueryMikroOrmConverterAsync } from './BaseEntityInsertCommandToBaseEntityInsertQueryMikroOrmConverterAsync';
 
 describe(BaseEntityInsertCommandToBaseEntityInsertQueryMikroOrmConverterAsync.name, () => {
   let baseEntityInsertOneCommandToBaseEntityInsertOneQueryMikroOrmConverterAsyncMock: jest.Mocked<

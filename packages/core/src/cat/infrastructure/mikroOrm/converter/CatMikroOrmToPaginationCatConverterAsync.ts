@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { CatMikroOrmToCatConverterAsync } from './CatMikroOrmToCatConverterAsync';
 import { ConverterAsync } from '../../../../common/domain/converter/ConverterAsync';
 import { Pagination } from '../../../../common/domain/model/Pagination';
 import { AnyEntityMikroOrmToPaginationEntityConverterAsync } from '../../../../common/infrastructure/mikroOrm/converter/AnyEntityMikroOrmToPaginationEntityConverterAsync';
 import { Cat } from '../../../domain/model/Cat';
 import { CatMikroOrm } from '../model/CatMikroOrm';
+import { CatMikroOrmToCatConverterAsync } from './CatMikroOrmToCatConverterAsync';
 
 @Injectable()
 export class CatMikroOrmToPaginationCatConverterAsync extends AnyEntityMikroOrmToPaginationEntityConverterAsync<

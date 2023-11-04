@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from '@jest/globals';
 
-import { isPostgreSqlError } from './isPostgreSqlError';
 import { PostgreSqlErrorFixtures } from '../../../fixtures/infrastructure/postgresql/model/PostgreSqlErrorFixtures';
+import { isPostgreSqlError } from './isPostgreSqlError';
 
 describe(isPostgreSqlError.name, () => {
   describe('having a value undefined', () => {

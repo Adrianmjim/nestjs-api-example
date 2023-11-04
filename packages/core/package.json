@@ -5,7 +5,6 @@
   "author": "Adrián Martínez Jiménez <adrianmjim199434@gmail.com>",
   "homepage": "https://github.com/Adrianmjim/nestjs-api-example#readme",
   "license": "ISC",
-  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Adrianmjim/nestjs-api-example.git"
@@ -14,8 +13,6 @@
     "url": "https://github.com/Adrianmjim/nestjs-api-example/issues"
   },
   "dependencies": {
-    "@grpc/grpc-js": "1.9.7",
-    "@grpc/proto-loader": "0.7.10",
     "@mikro-orm/core": "5.8.10",
     "@mikro-orm/migrations": "5.8.10",
     "@mikro-orm/nestjs": "5.2.2",
@@ -23,13 +20,8 @@
     "@nestjs/common": "10.2.7",
     "@nestjs/core": "10.2.7",
     "@nestjs/cqrs": "10.2.6",
-    "@nestjs/microservices": "10.2.7",
-    "class-transformer": "0.5.1",
-    "class-validator": "0.14.0",
     "dotenv": "16.3.1",
     "envalid": "8.0.0",
-    "eslint-plugin-import": "2.29.0",    
-    "nestjs-grpc-reflection": "0.1.1",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.8.1"
   },

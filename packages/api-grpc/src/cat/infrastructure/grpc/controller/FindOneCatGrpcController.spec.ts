@@ -1,16 +1,16 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { status } from '@grpc/grpc-js';
-import { QueryBus } from '@nestjs/cqrs';
-import { RpcException } from '@nestjs/microservices';
 import { Cat } from '@nestjs-api-example/core/models';
 import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
+import { QueryBus } from '@nestjs/cqrs';
+import { RpcException } from '@nestjs/microservices';
 
-import { FindOneCatGrpcController } from './FindOneCatGrpcController';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { CatFindOneQueryFixtures } from '../../../fixtures/domain/query/CatFindOneQueryFixtures';
 import { FindOneCatGrpcFixtures } from '../../../fixtures/infrastructure/grpc/model/FindOneCatGrpcFixtures';
 import { FindOneCatGrpc } from '../model/FindOneCatGrpc';
+import { FindOneCatGrpcController } from './FindOneCatGrpcController';
 
 describe(FindOneCatGrpcController.name, () => {
   let findOneCatGrpcController: FindOneCatGrpcController;

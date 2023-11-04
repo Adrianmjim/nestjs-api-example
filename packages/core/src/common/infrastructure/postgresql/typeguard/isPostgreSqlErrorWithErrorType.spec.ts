@@ -2,11 +2,11 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 jest.mock('./isPostgreSqlError');
 
-import { isPostgreSqlError } from './isPostgreSqlError';
-import { isPostgreSqlErrorWithErrorType } from './isPostgreSqlErrorWithErrorType';
 import { PostgreSqlErrorFixtures } from '../../../fixtures/infrastructure/postgresql/model/PostgreSqlErrorFixtures';
 import { PostgreSqlError } from '../model/PostgreSqlError';
 import { PostgreSqlErrorType } from '../model/PostgreSqlErrorType';
+import { isPostgreSqlError } from './isPostgreSqlError';
+import { isPostgreSqlErrorWithErrorType } from './isPostgreSqlErrorWithErrorType';
 
 describe(isPostgreSqlErrorWithErrorType.name, () => {
   describe('when called and isPostgreSqlError() returns false', () => {

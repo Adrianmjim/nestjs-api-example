@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { DeleteManager } from './DeleteManager';
 import { DeleteAdapter } from '../adapter/DeleteAdapter';
+import { DeleteManager } from './DeleteManager';
 
 interface CommandTest {
   foo: unknown;

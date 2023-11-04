@@ -2,13 +2,13 @@ import { beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { QueryOrder, QueryOrderMap } from '@mikro-orm/core';
 
-import { CatSortKeyAndOrderTypeToCatQueryOrderMapMikroOrmConverter } from './CatSortKeyAndOrderTypeToCatQueryOrderMapMikroOrmConverter';
 import { Converter } from '../../../../common/domain/converter/Converter';
 import { OrderType } from '../../../../common/domain/model/OrderType';
 import { CatSortKeyAndOrderType } from '../../../domain/model/CatSortKeyAndOrderType';
 import { CatSortKeyAndOrderTypeFixtures } from '../../../fixtures/domain/model/CatSortKeyAndOrderTypeFixtures';
 import { CatQueryOrderMapMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/model/CatQueryOrderMapMikroOrmFixtures';
 import { CatMikroOrm } from '../model/CatMikroOrm';
+import { CatSortKeyAndOrderTypeToCatQueryOrderMapMikroOrmConverter } from './CatSortKeyAndOrderTypeToCatQueryOrderMapMikroOrmConverter';
 
 describe(CatSortKeyAndOrderTypeToCatQueryOrderMapMikroOrmConverter.name, () => {
   let orderTypeToQueryOrderMikroOrmConverterMock: jest.Mocked<Converter<OrderType, QueryOrder>>;

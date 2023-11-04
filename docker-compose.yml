@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - ${DB_PORT}:5432
+      - 5432:5432
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
 
@@ -17,20 +17,18 @@ services:
       target: api-graphql
       context: .
       dockerfile: Dockerfile
-    command: ls lib
     env_file:
       - .env
     depends_on:
       - database
     ports:
-      - 5001:5001
+      - 5001:3000
 
   api-grpc:
     build:
       target: api-grpc
       context: .
       dockerfile: Dockerfile
-    command: pnpm start:prod
     env_file:
       - .env
     depends_on:
@@ -43,10 +41,9 @@ services:
       target: api-rest
       context: .
       dockerfile: Dockerfile
-    command: pnpm start:prod
     env_file:
       - .env
     depends_on:
       - database
     ports:
-      - ${NODE_PORT}:${NODE_PORT}
+      - 3000:3000

@@ -2,13 +2,13 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { EntityData } from '@mikro-orm/core';
 
-import { BaseEntityUpdateOneCommandToBaseEntitySetQueryMikroOrmConverterAsync } from './BaseEntityUpdateOneCommandToBaseEntitySetQueryMikroOrmConverterAsync';
 import { BaseEntitySetCommand } from '../../../domain/command/BaseEntitySetCommand';
 import { BaseEntityUpdateOneCommand } from '../../../domain/command/BaseEntityUpdateOneCommand';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { BaseEntityUpdateOneCommandFixtures } from '../../../fixtures/domain/command/BaseEntityUpdateOneCommandFixtures';
 import { BaseEntitySetQueryMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/command/BaseEntitySetQueryMikroOrmFixtures';
 import { BaseEntityMikroOrm } from '../model/BaseEntityMikroOrm';
+import { BaseEntityUpdateOneCommandToBaseEntitySetQueryMikroOrmConverterAsync } from './BaseEntityUpdateOneCommandToBaseEntitySetQueryMikroOrmConverterAsync';
 
 describe(BaseEntityUpdateOneCommandToBaseEntitySetQueryMikroOrmConverterAsync.name, () => {
   let baseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterAsyncMock: jest.Mocked<

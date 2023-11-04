@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { FindOneQueryHandler } from './FindOneQueryHandler';
 import { ManagerAsync } from '../../domain/manager/ManagerAsync';
+import { FindOneQueryHandler } from './FindOneQueryHandler';
 
 interface QueryTest {
   foo: unknown;

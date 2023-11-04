@@ -1,13 +1,13 @@
 import { jest, beforeAll, afterAll, describe, expect, it } from '@jest/globals';
 
-import { QueryBus } from '@nestjs/cqrs';
 import { Cat, Pagination } from '@nestjs-api-example/core/models';
 import { CatPaginateFindQuery } from '@nestjs-api-example/core/queries';
+import { QueryBus } from '@nestjs/cqrs';
 
-import { PaginateFindCatControllerV1 } from './PaginateFindCatControllerV1';
 import { CatPaginateFindQueryFixtures } from '../../../fixtures/domain/query/CatPaginateFindQueryFixtures';
 import { PaginateFindCatHttpV1Fixtures } from '../../../fixtures/infrastructure/model/PaginateFindCatHttpV1Fixtures';
 import { PaginateFindCatHttpV1 } from '../model/PaginateFindCatHttpV1';
+import { PaginateFindCatControllerV1 } from './PaginateFindCatControllerV1';
 
 describe(PaginateFindCatControllerV1.name, () => {
   let paginateFindCatControllerV1: PaginateFindCatControllerV1;

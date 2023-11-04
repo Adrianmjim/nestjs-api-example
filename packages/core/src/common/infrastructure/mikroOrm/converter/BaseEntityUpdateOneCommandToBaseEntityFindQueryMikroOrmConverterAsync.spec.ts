@@ -2,13 +2,13 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { ObjectQuery } from '@mikro-orm/core';
 
-import { BaseEntityUpdateOneCommandToBaseEntityFindQueryMikroOrmConverterAsync } from './BaseEntityUpdateOneCommandToBaseEntityFindQueryMikroOrmConverterAsync';
 import { BaseEntityUpdateOneCommand } from '../../../domain/command/BaseEntityUpdateOneCommand';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { BaseEntityFindQuery } from '../../../domain/query/BaseEntityFindQuery';
 import { BaseEntityUpdateOneCommandFixtures } from '../../../fixtures/domain/command/BaseEntityUpdateOneCommandFixtures';
 import { BaseEntityFindQueryMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/query/BaseEntityFindQueryMikroOrmFixtures';
 import { BaseEntityMikroOrm } from '../model/BaseEntityMikroOrm';
+import { BaseEntityUpdateOneCommandToBaseEntityFindQueryMikroOrmConverterAsync } from './BaseEntityUpdateOneCommandToBaseEntityFindQueryMikroOrmConverterAsync';
 
 describe(BaseEntityUpdateOneCommandToBaseEntityFindQueryMikroOrmConverterAsync.name, () => {
   let baseEntityFindQueryToBaseEntityFindQueryMikroOrmConverterAsyncMock: jest.Mocked<
