@@ -10,7 +10,7 @@ export class InsertOneCatResolver {
   public constructor(private readonly commandBus: CommandBus) {}
 
   @Mutation('insertOneCat')
-  public async insert(@Args('insertOneCatInput') insertOneCatGraphQlInput: InsertOneCatGraphQlInput): Promise<Cat> {
+  public async insertOne(@Args('insertOneCatInput') insertOneCatGraphQlInput: InsertOneCatGraphQlInput): Promise<Cat> {
     const catInsertOneCommand: CatInsertOneCommand = new CatInsertOneCommand({
       bornDate: insertOneCatGraphQlInput.bornDate,
       color: insertOneCatGraphQlInput.color,
