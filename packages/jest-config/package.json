@@ -17,7 +17,8 @@
     "url": "git+https://github.com/Adrianmjim/nestjs-api-example.git"
   },
   "scripts": {
-    "format": "prettier --write ./lib/**/*.js"
+    "format": "prettier --write ./lib/**/*.js",
+    "format:check": "prettier --check ./src/**/*.ts"
   },
   "type": "module"
 }
