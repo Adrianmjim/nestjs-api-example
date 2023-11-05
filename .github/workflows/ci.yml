@@ -146,3 +146,6 @@ jobs:
         uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_TOKEN }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/packages/**/coverage/lcov.info:lcov
