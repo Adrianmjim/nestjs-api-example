@@ -141,13 +141,3 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Upload coverage to Code Climate
-        uses: paambaati/codeclimate-action@v5.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_TOKEN }}
-        with:
-          coverageLocations: |
-            ${{github.workspace}}/packages/**/coverage/lcov.info:lcov
-            ${{github.workspace}}/packages/**/coverage/clover.xml:clover
-            ${{github.workspace}}/packages/**/coverage/coverage-final.json:coverage
