@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.build.json",
-  "exclude": ["node_modules"],
-  "compilerOptions": {
-    "incremental": true,
-    "noEmit": true,
-    "tsBuildInfoFile": "./tmp/tsconfig.gitHook.tsbuildinfo"
-  }
-}
