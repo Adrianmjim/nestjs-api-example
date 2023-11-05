@@ -1,5 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
+jest.mock('../../postgresql/typeguard/isPostgreSqlErrorWithErrorType');
+
 import { EntityData, EntityManager, EntityRepository, Loaded, ObjectQuery } from '@mikro-orm/core';
 
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
@@ -9,8 +11,6 @@ import { PostgreSqlError } from '../../postgresql/model/PostgreSqlError';
 import { PostgreSqlErrorType } from '../../postgresql/model/PostgreSqlErrorType';
 import { isPostgreSqlErrorWithErrorType } from '../../postgresql/typeguard/isPostgreSqlErrorWithErrorType';
 import { UpdateMikroOrmAdapter } from './UpdateMikroOrmAdapter';
-
-jest.mock('../../postgresql/typeguard/isPostgreSqlErrorWithErrorType');
 
 interface CommandTest {
   foo: unknown;
