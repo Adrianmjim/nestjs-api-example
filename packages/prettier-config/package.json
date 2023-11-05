@@ -1,0 +1,16 @@
+{
+  "author": "Adrián Martínez Jiménez <adrianmjim199434@gmail.com>",
+  "name": "@nestjs-api-example/prettier-config",
+  "description": "common prettier config for nestjs api example packages",
+  "main": "index.js",
+  "license": "See license in \"LICENSE\" file",
+  "bugs": {
+    "url": "https://github.com/Adrianmjim/nestjs-api-example/issues"
+  },
+  "homepage": "https://github.com/Adrianmjim/nestjs-api-example#readme",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adrianmjim/nestjs-api-example.git"
+  }
+}

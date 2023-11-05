@@ -1,46 +1,20 @@
-# compiled output
-/dist
-/node_modules
-/tmp
+### Turbo ###
+/.turbo
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+### Visual Studio Code ###
+/.vscode/*
+!/.vscode/settings.json
+!/.vscode/tasks.json
+!/.vscode/launch.json
+!/.vscode/extensions.json
+!/.vscode/*.code-snippets
 
-# OS
-.DS_Store
+# node modules
+/node_modules/
 
-# Tests
-/coverage
-/.nyc_output
+### npm lock files (consider https://github.com/yarnpkg/yarn/issues/838#issuecomment-253362537 as reference)
+/package-lock.json
+/pnpm-lock.yaml
+/yarn.lock
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/launch.json
-!.vscode/tasks.json
-!.vscode/extensions.json
-
-# ENV
-.env
-
-# CI
-reports/
-
-ormconfig.json
-
-/config/
 /data
-pnpm-lock.yaml

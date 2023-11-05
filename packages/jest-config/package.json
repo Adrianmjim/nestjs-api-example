@@ -1,0 +1,24 @@
+{
+  "author": "Adrián Martínez Jiménez <adrianmjim199434@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/Adrianmjim/nestjs-api-example/issues"
+  },
+  "description": "Backend jest config for nestjs meow packages",
+  "devDependencies": {
+    "@jest/types": "29.6.3"
+  },
+  "exports": "./lib/index.js",
+  "homepage": "https://github.com/Adrianmjim/nestjs-api-example#readme",
+  "license": "See license in \"LICENSE\" file",
+  "name": "@nestjs-api-example/jest-config",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adrianmjim/nestjs-api-example.git"
+  },
+  "scripts": {
+    "format": "prettier --write ./lib/**/*.js",
+    "format:check": "prettier --check ./lib/**/*.js"
+  },
+  "type": "module"
+}

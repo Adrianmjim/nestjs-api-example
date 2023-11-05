@@ -1,0 +1,22 @@
+scalar UUID
+scalar PositiveInt
+scalar DateTime
+
+interface BaseEntity {
+  createdAt: DateTime!
+  id: UUID!
+  updatedAt: DateTime
+  version: PositiveInt!
+}
+
+interface PaginationMeta {
+  currentPage: PositiveInt!
+  itemCount: PositiveInt!
+  itemsPerPage: PositiveInt!
+  totalItems: PositiveInt!
+  totalPages: PositiveInt!
+}
+
+interface Pagination {
+  meta: PaginationMeta!
+}
