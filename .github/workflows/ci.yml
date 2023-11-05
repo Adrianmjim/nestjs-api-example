@@ -149,3 +149,5 @@ jobs:
         with:
           coverageLocations: |
             ${{github.workspace}}/packages/**/coverage/lcov.info:lcov
+            ${{github.workspace}}/packages/**/coverage/clover.xml:clover
+            ${{github.workspace}}/packages/**/coverage/coverage-final.json:coverage
