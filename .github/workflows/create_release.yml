@@ -31,7 +31,7 @@ jobs:
 
       - name: Config git
         run: |
-          git config --global user.email "${{ github.event.sender.id }}"
+          git config --global user.email "${{ github.event.sender.email }}"
           git config --global user.name "${{ github.event.sender.login }}"
 
       - name: Create changelog
@@ -48,42 +48,21 @@ jobs:
 
       - name: Apply standard-version
         run: |
-          cd ../api-grpc
+          cd packages/api-grpc
           standard-version -t ""  --no-verify --first-release
 
       - name: Apply standard-version
         run: |
-          cd ../api-rest
+          cd packages/api-rest
           standard-version -t ""  --no-verify --first-release
 
       - name: Apply standard-version
         run: |
-          cd ../core
-          standard-version -t ""  --no-verify --first-release
-
-      - name: Apply standard-version
-        run: |
-          cd ../estlint-config
-          standard-version -t ""  --no-verify --first-release
-      
-      - name: Apply standard-version
-        run: |
-          cd ../jest-config
-          standard-version -t ""  --no-verify --first-release
-
-      - name: Apply standard-version
-        run: |
-          cd ../prettier-config
-          standard-version -t ""  --no-verify --first-release
-
-      - name: Apply standard-version
-        run: |
-          cd ../typescript-config
+          cd packages/core
           standard-version -t ""  --no-verify --first-release
 
       - name: Commit release
         run: |
-          cd ../..
           git commit --amend --no-verify --no-edit
           git push --no-verify
       
