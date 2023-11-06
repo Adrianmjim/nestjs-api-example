@@ -29,6 +29,11 @@ jobs:
       - name: Install standard-version and conventional-changelog
         run : pnpm i -g standard-version conventional-changelog-cli
 
+      - name: Config git
+        run: |
+          git config --global user.email "${{ github.event.sender.id }}"
+          git config --global user.name "${{ github.event.sender.login }}"
+
       - name: Create changelog
         id: changelog
         run: >-
@@ -56,7 +61,6 @@ jobs:
           cd ../core
           standard-version -t ""  --no-verify --first-release
 
-
       - name: Apply standard-version
         run: |
           cd ../estlint-config
@@ -80,8 +84,6 @@ jobs:
       - name: Commit release
         run: |
           cd ../..
-          git config --global user.email "$GITLAB_USER_EMAIL"
-          git config --global user.name "$GITLAB_USER_NAME"
           git commit --amend --no-verify --no-edit
           git push --no-verify
       

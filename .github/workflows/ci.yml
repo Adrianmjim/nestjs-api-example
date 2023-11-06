@@ -3,7 +3,12 @@ name: CI
 on:
   pull_request:
     branches: 
-    - '*'
+      - '*'
+    paths:
+      - 'package.json'
+      - 'turbo.json'
+      - 'packages/**/*.ts'
+      - 'packages/**/package.json'
     
 jobs: 
   build:
