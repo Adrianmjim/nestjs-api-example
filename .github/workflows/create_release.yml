@@ -43,26 +43,29 @@ jobs:
           
       - name: Apply standard-version
         run: |
-          cd packages/api-graphql
           standard-version -t ""  --no-verify --first-release
 
-      - name: Apply standard-version
+      - name: Get new version
+        id: version
+        run: >-
+          echo "::set-output name=VERSION::$(
+            jq .version package.json -r
+          )"
+      
+      - name: Fix packages
         run: |
-          cd packages/api-grpc
-          standard-version -t ""  --no-verify --first-release
-
-      - name: Apply standard-version
-        run: |
-          cd packages/api-rest
-          standard-version -t ""  --no-verify --first-release
-
-      - name: Apply standard-version
-        run: |
-          cd packages/core
-          standard-version -t ""  --no-verify --first-release
+          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/api-graphql/package.json ) > packages/api-graphql/package.json
+          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/api-grpc/package.json ) > packages/api-grpc/package.json
+          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/api-rest/package.json ) > packages/api-rest/package.json
+          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/core/package.json ) > packages/core/package.json        
 
       - name: Commit release
         run: |
           git commit --amend --no-verify --no-edit
           git push --no-verify
+
+      - name: Create release
+        run: |
+          gh release create ${{ steps.version.outputs.VERSION }} --notes "${{ steps.changelog.outputs.CHANGELOG }}"
+        
       
