@@ -54,6 +54,7 @@ jobs:
       
       - name: Fix packages
         run: |
+          sudo apt-get install moreutils
           jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-graphql/package.json | sponge packages/api-graphql/package.json
           jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-grpc/package.json | sponge packages/api-grpc/package.json
           jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-rest/package.json | sponge packages/api-rest/package.json
