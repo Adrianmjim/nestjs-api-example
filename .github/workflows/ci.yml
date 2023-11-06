@@ -4,9 +4,6 @@ on:
   pull_request:
     branches: 
     - '*'
-  push:
-    branches:
-    - main
     
 jobs: 
   build:
@@ -141,3 +138,6 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+
+
