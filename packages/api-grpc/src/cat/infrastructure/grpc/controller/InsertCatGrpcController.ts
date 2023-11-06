@@ -1,8 +1,8 @@
-import { CatInsertOneCommand, CatInsertCommand } from '@nestjs-api-example/core/commands';
-import { Cat } from '@nestjs-api-example/core/models';
 import { Controller } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { GrpcStreamMethod } from '@nestjs/microservices';
+import { CatInsertOneCommand, CatInsertCommand } from '@nestjs-api-example/core/commands';
+import { Cat } from '@nestjs-api-example/core/models';
 import { Observable, map, mergeMap, toArray } from 'rxjs';
 
 import { InsertOneCatGrpc } from '../model/InsertOneCatGrpc';

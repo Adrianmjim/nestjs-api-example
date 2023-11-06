@@ -1,7 +1,7 @@
-import { Pagination, Cat } from '@nestjs-api-example/core/models';
-import { CatFindQuery, CatPaginateFindQuery } from '@nestjs-api-example/core/queries';
 import { QueryBus } from '@nestjs/cqrs';
 import { Args, Query, Resolver } from '@nestjs/graphql';
+import { Pagination, Cat } from '@nestjs-api-example/core/models';
+import { CatFindQuery, CatPaginateFindQuery } from '@nestjs-api-example/core/queries';
 
 import { PaginateFindCatGraphQlInput } from '../model/PaginateFindCatGraphQlInput';
 

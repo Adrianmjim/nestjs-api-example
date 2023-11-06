@@ -1,7 +1,7 @@
-import { AppConfigModule } from '@nestjs-api-example/core/modules';
 import { ApolloDriver } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { AppConfigModule } from '@nestjs-api-example/core/modules';
 import { DateTimeResolver, PositiveIntResolver, UUIDResolver, VoidResolver } from 'graphql-scalars';
 
 import { AppController } from './AppController';

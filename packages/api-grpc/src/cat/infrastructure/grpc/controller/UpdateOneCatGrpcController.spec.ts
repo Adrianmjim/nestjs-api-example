@@ -1,12 +1,12 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { CatUpdateOneCommand } from '@nestjs-api-example/core/commands';
 import { CommandBus } from '@nestjs/cqrs';
+import { CatUpdateOneCommand } from '@nestjs-api-example/core/commands';
 
+import { UpdateOneCatGrpcController } from './UpdateOneCatGrpcController';
 import { CatUpdateOneCommandFixtures } from '../../../fixtures/domain/command/CatUpdateOneCommandFixtures';
 import { UpdateOneCatGrpcFixtures } from '../../../fixtures/infrastructure/grpc/model/UpdateOneCatGrpcFixtures';
 import { UpdateOneCatGrpc } from '../model/UpdateOneCatGrpc';
-import { UpdateOneCatGrpcController } from './UpdateOneCatGrpcController';
 
 describe(UpdateOneCatGrpcController.name, () => {
   let updateOneCatGrpcController: UpdateOneCatGrpcController;

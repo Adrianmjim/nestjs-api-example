@@ -4,13 +4,13 @@ jest.mock('../../postgresql/typeguard/isPostgreSqlErrorWithErrorType');
 
 import { EntityData, EntityManager, EntityRepository, Loaded, ObjectQuery } from '@mikro-orm/core';
 
+import { UpdateOneMikroOrmAdapter } from './UpdateOneMikroOrmAdapter';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { InvalidArgumentException } from '../../../domain/exception/InvalidArgumentException';
 import { PostgreSqlErrorFixtures } from '../../../fixtures/infrastructure/postgresql/model/PostgreSqlErrorFixtures';
 import { PostgreSqlError } from '../../postgresql/model/PostgreSqlError';
 import { PostgreSqlErrorType } from '../../postgresql/model/PostgreSqlErrorType';
 import { isPostgreSqlErrorWithErrorType } from '../../postgresql/typeguard/isPostgreSqlErrorWithErrorType';
-import { UpdateOneMikroOrmAdapter } from './UpdateOneMikroOrmAdapter';
 
 interface CommandTest {
   foo: unknown;

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { UpdateAdapter } from '../adapter/UpdateAdapter';
 import { ManagerAsync } from './ManagerAsync';
+import { UpdateAdapter } from '../adapter/UpdateAdapter';
 
 @Injectable()
 export class UpdateManager<TCommand> implements ManagerAsync<TCommand, void> {

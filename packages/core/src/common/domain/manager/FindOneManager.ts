@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { FindOneAdapter } from '../adapter/FindOneAdapter';
 import { ManagerAsync } from './ManagerAsync';
+import { FindOneAdapter } from '../adapter/FindOneAdapter';
 
 @Injectable()
 export class FindOneManager<TQuery, TModel> implements ManagerAsync<TQuery, TModel | undefined> {

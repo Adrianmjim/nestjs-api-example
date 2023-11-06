@@ -1,7 +1,7 @@
-import { Cat } from '@nestjs-api-example/core/models';
-import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 import { QueryBus } from '@nestjs/cqrs';
 import { Args, Resolver } from '@nestjs/graphql';
+import { Cat } from '@nestjs-api-example/core/models';
+import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
 

@@ -1,5 +1,5 @@
-import { CatInsertCommand } from '../../../domain/command/CatInsertCommand';
 import { CatInsertOneCommandFixtures } from './CatInsertOneCommandFixtures';
+import { CatInsertCommand } from '../../../domain/command/CatInsertCommand';
 
 export class CatInsertCommandFixtures {
   public static get any(): CatInsertCommand {

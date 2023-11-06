@@ -1,5 +1,3 @@
-import { CatSetCommand, CatUpdateOneCommand } from '@nestjs-api-example/core/commands';
-import { CatFindQuery } from '@nestjs-api-example/core/queries';
 import { Body, Controller, HttpCode, HttpStatus, Param, ParseUUIDPipe, Patch } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import {
@@ -10,6 +8,8 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
+import { CatSetCommand, CatUpdateOneCommand } from '@nestjs-api-example/core/commands';
+import { CatFindQuery } from '@nestjs-api-example/core/queries';
 
 import { UpdateOneCatHttpV1 } from '../model/UpdateOneCatHttpV1';
 

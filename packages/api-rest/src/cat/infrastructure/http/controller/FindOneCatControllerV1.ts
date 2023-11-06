@@ -1,5 +1,3 @@
-import { Cat } from '@nestjs-api-example/core/models';
-import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 import { Controller, Get, Param, ParseUUIDPipe } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 import {
@@ -10,6 +8,8 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
+import { Cat } from '@nestjs-api-example/core/models';
+import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
 
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
 import { CatHttpV1 } from '../model/CatHttpV1';

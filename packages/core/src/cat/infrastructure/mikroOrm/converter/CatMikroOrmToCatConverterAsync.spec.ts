@@ -1,10 +1,10 @@
 import { beforeAll, describe, expect, it } from '@jest/globals';
 
+import { CatMikroOrmToCatConverterAsync } from './CatMikroOrmToCatConverterAsync';
 import { Cat } from '../../../domain/model/Cat';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { CatMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/model/CatMikroOrmFixtures';
 import { CatMikroOrm } from '../model/CatMikroOrm';
-import { CatMikroOrmToCatConverterAsync } from './CatMikroOrmToCatConverterAsync';
 
 describe(CatMikroOrmToCatConverterAsync.name, () => {
   let catMikroOrmToCatConverterAsync: CatMikroOrmToCatConverterAsync;

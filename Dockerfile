@@ -4,7 +4,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 COPY . /usr/src/app
 WORKDIR /usr/src/app
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --no-frozen-lockfile
 RUN pnpm run -r build
 RUN pnpm deploy --filter=api-graphql --prod /prod/api-graphql
 RUN pnpm deploy --filter=api-grpc --prod /prod/api-grpc

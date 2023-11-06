@@ -2,9 +2,9 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { EntityRepository, FindOptions, Loaded, ObjectQuery } from '@mikro-orm/core';
 
+import { PaginateFindMikroOrmAdapter } from './PaginateFindMikroOrmAdapter';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { Pagination } from '../../../domain/model/Pagination';
-import { PaginateFindMikroOrmAdapter } from './PaginateFindMikroOrmAdapter';
 
 interface QueryTest {
   foo: unknown;

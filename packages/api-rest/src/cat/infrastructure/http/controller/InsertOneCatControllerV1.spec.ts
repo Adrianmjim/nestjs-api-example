@@ -1,14 +1,14 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
+import { CommandBus } from '@nestjs/cqrs';
 import { CatInsertOneCommand } from '@nestjs-api-example/core/commands';
 import { Cat } from '@nestjs-api-example/core/models';
-import { CommandBus } from '@nestjs/cqrs';
 
+import { InsertOneCatControllerV1 } from './InsertOneCatControllerV1';
 import { CatInsertOneCommandFixtures } from '../../../fixtures/domain/command/CatInsertOneCommandFixtures';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { InsertOneCatHttpV1Fixtures } from '../../../fixtures/infrastructure/model/InsertOneCatHttpV1Fixtures';
 import { InsertOneCatHttpV1 } from '../model/InsertOneCatHttpV1';
-import { InsertOneCatControllerV1 } from './InsertOneCatControllerV1';
 
 describe(InsertOneCatControllerV1.name, () => {
   let insertOneCatControllerV1: InsertOneCatControllerV1;

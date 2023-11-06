@@ -2,10 +2,10 @@ import { beforeAll, describe, expect, it } from '@jest/globals';
 
 import { MikroOrmModuleOptions } from '@mikro-orm/nestjs';
 
-import { DatabaseConfigFixtures } from '../../fixtures/infrastructure/database/DatabaseConfigFixtures';
-import { MikroOrmModuleOptionsFixtures } from '../../fixtures/infrastructure/mikroOrm/MikroOrmModuleOptionsFixtures';
 import { DatabaseConfig } from './DatabaseConfig';
 import { getMikroOrmModuleOptions } from './getMikroOrmModuleOptions';
+import { DatabaseConfigFixtures } from '../../fixtures/infrastructure/database/DatabaseConfigFixtures';
+import { MikroOrmModuleOptionsFixtures } from '../../fixtures/infrastructure/mikroOrm/MikroOrmModuleOptionsFixtures';
 
 describe(getMikroOrmModuleOptions.name, () => {
   let mikroOrmConfig: DatabaseConfig;

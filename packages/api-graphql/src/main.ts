@@ -1,7 +1,7 @@
-import { AppConfig } from '@nestjs-api-example/core/models';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
+import { AppConfig } from '@nestjs-api-example/core/models';
 
 import { AppModule } from './AppModule';
 

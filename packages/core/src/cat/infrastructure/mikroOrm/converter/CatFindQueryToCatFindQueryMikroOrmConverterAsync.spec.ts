@@ -2,11 +2,11 @@ import { beforeAll, describe, expect, it } from '@jest/globals';
 
 import { ObjectQuery } from '@mikro-orm/core';
 
+import { CatFindQueryToCatFindQueryMikroOrmConverterAsync } from './CatFindQueryToCatFindQueryMikroOrmConverterAsync';
 import { CatFindQuery } from '../../../domain/query/CatFindQuery';
 import { CatFindQueryFixtures } from '../../../fixtures/domain/query/CatFindQueryFixtures';
 import { CatFindQueryMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/query/CatFindQueryMikroOrmFixtures';
 import { CatMikroOrm } from '../model/CatMikroOrm';
-import { CatFindQueryToCatFindQueryMikroOrmConverterAsync } from './CatFindQueryToCatFindQueryMikroOrmConverterAsync';
 
 describe(CatFindQueryToCatFindQueryMikroOrmConverterAsync.name, () => {
   let catFindQueryToCatFindQueryMikroOrmConverterAsync: CatFindQueryToCatFindQueryMikroOrmConverterAsync;

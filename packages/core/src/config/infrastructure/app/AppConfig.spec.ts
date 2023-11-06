@@ -1,9 +1,9 @@
 import { beforeAll, describe, expect, it, jest } from '@jest/globals';
 
+import { AppConfig } from './AppConfig';
 import { LoadDataAdapter } from '../../../env/domain/adapter/LoadDataAdapter';
 import { AppEnvVariables } from '../../../envVariable/domain/model/AppEnvVariables';
 import { AppEnvVariablesFixtures } from '../../../envVariable/fixtures/domain/model/AppEnvVariablesFixtures';
-import { AppConfig } from './AppConfig';
 
 describe(AppConfig.name, () => {
   describe('when instantiated', () => {
