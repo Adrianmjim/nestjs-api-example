@@ -54,20 +54,19 @@ jobs:
       
       - name: Fix packages
         run: |
-          jq --indent 2 '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-graphql/package.json > packages/api-graphql/package.json
-          jq --indent 2 '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-grpc/package.json > packages/api-grpc/package.json
-          jq --indent 2 '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-rest/package.json > packages/api-rest/package.json
-          jq --indent 2 '.version = "${{ steps.version.outputs.VERSION }}"' packages/core/package.json > packages/core/package.json
-          cat packages/core/package.json
+          jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-graphql/package.json | sponge packages/api-graphql/package.json
+          jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-grpc/package.json | sponge packages/api-grpc/package.json
+          jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-rest/package.json | sponge packages/api-rest/package.json
+          jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/core/package.json | sponge packages/core/package.json
           
       - name: Commit release
         run: |
           git add .
-          git status
           git commit --amend --no-verify --no-edit
+          git push --force --tags
 
-      # - name: Create release
-      #   run: |
-      #     gh release create ${{ steps.version.outputs.VERSION }} --notes "${{ steps.changelog.outputs.CHANGELOG }}"
+      - name: Create release
+        run: |
+          gh release create ${{ steps.version.outputs.VERSION }} --notes "${{ steps.changelog.outputs.CHANGELOG }}"
         
       
