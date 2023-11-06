@@ -65,6 +65,7 @@ jobs:
       - name: Commit release
         run: |
           git add .
+          git status
           git commit --amend --no-verify --no-edit
 
       # - name: Create release
