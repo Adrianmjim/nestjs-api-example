@@ -1,8 +1,8 @@
-import { CatInsertOneCommand } from '@nestjs-api-example/core/commands';
-import { Cat } from '@nestjs-api-example/core/models';
 import { Body, Controller, Post } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { ApiBadRequestResponse, ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { CatInsertOneCommand } from '@nestjs-api-example/core/commands';
+import { Cat } from '@nestjs-api-example/core/models';
 
 import { CatHttpV1 } from '../model/CatHttpV1';
 import { InsertOneCatHttpV1 } from '../model/InsertOneCatHttpV1';

@@ -1,5 +1,5 @@
-import { BaseEntity } from '../../../domain/model/BaseEntity';
 import { DateFixtures } from './DateFixtures';
+import { BaseEntity } from '../../../domain/model/BaseEntity';
 
 export class BaseEntityFixtures {
   public static get any(): BaseEntity {

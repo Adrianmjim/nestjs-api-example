@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
-import { InsertAdapter } from '../adapter/InsertAdapter';
 import { InsertManager } from './InsertManager';
+import { InsertAdapter } from '../adapter/InsertAdapter';
 
 interface CommandTest {
   foo: unknown;

@@ -1,7 +1,7 @@
-import { CatInsertOneCommand } from '@nestjs-api-example/core/commands';
-import { Cat } from '@nestjs-api-example/core/models';
 import { CommandBus } from '@nestjs/cqrs';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { CatInsertOneCommand } from '@nestjs-api-example/core/commands';
+import { Cat } from '@nestjs-api-example/core/models';
 
 import { InsertOneCatGraphQlInput } from '../model/InsertOneCatGraphQlInput';
 

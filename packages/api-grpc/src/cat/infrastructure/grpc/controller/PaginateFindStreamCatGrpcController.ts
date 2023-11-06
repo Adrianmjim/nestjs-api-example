@@ -1,8 +1,8 @@
-import { Pagination, Cat } from '@nestjs-api-example/core/models';
-import { CatPaginateFindQuery, CatFindQuery } from '@nestjs-api-example/core/queries';
 import { Controller } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 import { GrpcStreamMethod } from '@nestjs/microservices';
+import { Pagination, Cat } from '@nestjs-api-example/core/models';
+import { CatPaginateFindQuery, CatFindQuery } from '@nestjs-api-example/core/queries';
 import { Observable, map, mergeMap } from 'rxjs';
 
 import { PaginateFindCatGrpc } from '../model/PaginateFindCatGrpc';

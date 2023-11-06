@@ -1,15 +1,15 @@
 import { jest, beforeAll, afterAll, describe, expect, it } from '@jest/globals';
 
+import { QueryBus, CommandBus } from '@nestjs/cqrs';
 import { CatDeleteCommand } from '@nestjs-api-example/core/commands';
 import { Cat } from '@nestjs-api-example/core/models';
 import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
-import { QueryBus, CommandBus } from '@nestjs/cqrs';
 
+import { DeleteOneCatResolver } from './DeleteOneCatResolver';
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
 import { CatDeleteCommandFixtures } from '../../../fixtures/domain/command/CatDeleteCommandFixtures';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { CatFindOneQueryFixtures } from '../../../fixtures/domain/query/CatFindOneQueryFixtures';
-import { DeleteOneCatResolver } from './DeleteOneCatResolver';
 
 describe(DeleteOneCatResolver.name, () => {
   let deleteOneCatResolver: DeleteOneCatResolver;

@@ -1,8 +1,8 @@
-import { CatUpdateOneCommand, CatSetCommand, CatUpdateCommand } from '@nestjs-api-example/core/commands';
-import { CatFindQuery } from '@nestjs-api-example/core/queries';
 import { Controller } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { GrpcMethod } from '@nestjs/microservices';
+import { CatUpdateOneCommand, CatSetCommand, CatUpdateCommand } from '@nestjs-api-example/core/commands';
+import { CatFindQuery } from '@nestjs-api-example/core/queries';
 import { Observable, map, mergeMap, toArray } from 'rxjs';
 
 import { UpdateOneCatGrpc } from '../model/UpdateOneCatGrpc';

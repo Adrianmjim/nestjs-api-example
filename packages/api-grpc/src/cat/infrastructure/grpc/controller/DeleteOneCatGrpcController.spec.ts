@@ -1,18 +1,18 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { status } from '@grpc/grpc-js';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { RpcException } from '@nestjs/microservices';
 import { CatDeleteCommand } from '@nestjs-api-example/core/commands';
 import { Cat } from '@nestjs-api-example/core/models';
 import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
-import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { RpcException } from '@nestjs/microservices';
 
+import { DeleteOneCatGrpcController } from './DeleteOneCatGrpcController';
 import { CatDeleteCommandFixtures } from '../../../fixtures/domain/command/CatDeleteCommandFixtures';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { CatFindOneQueryFixtures } from '../../../fixtures/domain/query/CatFindOneQueryFixtures';
 import { DeleteOneCatGrpcFixtures } from '../../../fixtures/infrastructure/grpc/model/DeleteOneCatGrpcFixtures';
 import { DeleteOneCatGrpc } from '../model/DeleteOneCatGrpc';
-import { DeleteOneCatGrpcController } from './DeleteOneCatGrpcController';
 
 describe(DeleteOneCatGrpcController.name, () => {
   let deleteOneCatGrpcController: DeleteOneCatGrpcController;

@@ -2,11 +2,11 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { EntityData } from '@mikro-orm/core';
 
+import { BaseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterAsync } from './BaseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterAsync';
 import { BaseEntitySetCommand } from '../../../domain/command/BaseEntitySetCommand';
 import { BaseEntitySetCommandFixtures } from '../../../fixtures/domain/command/BaseEntitySetCommandFixtures';
 import { BaseEntitySetQueryMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/command/BaseEntitySetQueryMikroOrmFixtures';
 import { BaseEntityMikroOrm } from '../model/BaseEntityMikroOrm';
-import { BaseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterAsync } from './BaseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterAsync';
 
 class BaseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterAsyncTest extends BaseEntitySetCommandToBaseEntitySetQueryMikroOrmConverterAsync<
   BaseEntitySetCommand,

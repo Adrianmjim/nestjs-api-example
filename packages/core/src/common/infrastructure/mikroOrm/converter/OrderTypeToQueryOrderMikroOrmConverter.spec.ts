@@ -2,10 +2,10 @@ import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
 import { QueryOrder } from '@mikro-orm/core';
 
+import { OrderTypeToQueryOrderMikroOrmConverter } from './OrderTypeToQueryOrderMikroOrmConverter';
 import { OrderType } from '../../../domain/model/OrderType';
 import { OrderTypeFixtures } from '../../../fixtures/domain/model/OrderTypeFixtures';
 import { QueryOrderMikroOrmFixtures } from '../../../fixtures/infrastructure/mikroOrm/query/QueryOrderMikroOrmFixtures';
-import { OrderTypeToQueryOrderMikroOrmConverter } from './OrderTypeToQueryOrderMikroOrmConverter';
 
 describe(OrderTypeToQueryOrderMikroOrmConverter.name, () => {
   let orderTypeToQueryOrderMikroOrmConverter: OrderTypeToQueryOrderMikroOrmConverter;

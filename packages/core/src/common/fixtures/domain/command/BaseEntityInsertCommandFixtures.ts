@@ -1,5 +1,5 @@
-import { BaseEntityInsertCommand } from '../../../domain/command/BaseEntityInsertCommand';
 import { BaseEntityInsertOneCommandFixtures } from './BaseEntityInsertOneCommandFixtures';
+import { BaseEntityInsertCommand } from '../../../domain/command/BaseEntityInsertCommand';
 
 export class BaseEntityInsertCommandFixtures {
   public static get any(): BaseEntityInsertCommand {

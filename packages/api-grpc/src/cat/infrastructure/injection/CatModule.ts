@@ -1,6 +1,6 @@
-import { CatCoreModule } from '@nestjs-api-example/core/modules';
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
+import { CatCoreModule } from '@nestjs-api-example/core/modules';
 
 import { DeleteOneCatGrpcController } from '../grpc/controller/DeleteOneCatGrpcController';
 import { FindOneCatGrpcController } from '../grpc/controller/FindOneCatGrpcController';

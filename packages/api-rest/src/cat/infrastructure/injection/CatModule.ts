@@ -1,6 +1,6 @@
-import { CatCoreModule } from '@nestjs-api-example/core/modules';
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
+import { CatCoreModule } from '@nestjs-api-example/core/modules';
 
 import { DeleteOneCatControllerV1 } from '../http/controller/DeleteOneCatControllerV1';
 import { FindOneCatControllerV1 } from '../http/controller/FindOneCatControllerV1';

@@ -1,13 +1,13 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 
+import { QueryBus } from '@nestjs/cqrs';
 import { Cat } from '@nestjs-api-example/core/models';
 import { CatFindOneQuery } from '@nestjs-api-example/core/queries';
-import { QueryBus } from '@nestjs/cqrs';
 
+import { FindOneCatControllerV1 } from './FindOneCatControllerV1';
 import { EntityNotFoundException } from '../../../../common/domain/exception/EntityNotFoundException';
 import { CatFixtures } from '../../../fixtures/domain/model/CatFixtures';
 import { CatFindOneQueryFixtures } from '../../../fixtures/domain/query/CatFindOneQueryFixtures';
-import { FindOneCatControllerV1 } from './FindOneCatControllerV1';
 
 describe(FindOneCatControllerV1.name, () => {
   let findOneCatControllerV1: FindOneCatControllerV1;

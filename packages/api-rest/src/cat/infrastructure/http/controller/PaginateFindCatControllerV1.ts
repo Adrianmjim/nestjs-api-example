@@ -1,8 +1,8 @@
-import { Pagination, Cat } from '@nestjs-api-example/core/models';
-import { CatFindQuery, CatPaginateFindQuery } from '@nestjs-api-example/core/queries';
 import { Controller, Get, Query } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 import { ApiBadRequestResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Pagination, Cat } from '@nestjs-api-example/core/models';
+import { CatFindQuery, CatPaginateFindQuery } from '@nestjs-api-example/core/queries';
 
 import { ApiOkPaginationResponse } from '../../../../common/infrastructure/http/decorator/ApiOkPaginationResponse';
 import { CatHttpV1 } from '../model/CatHttpV1';
