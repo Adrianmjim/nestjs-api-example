@@ -58,7 +58,7 @@ jobs:
           echo $( jq --indent 2 '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-grpc/package.json ) > packages/api-grpc/package.json
           echo $( jq --indent 2 '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-rest/package.json ) > packages/api-rest/package.json
           echo $( jq --indent 2 '.version = "${{ steps.version.outputs.VERSION }}"' packages/core/package.json ) > packages/core/package.json
-
+          cat packages/core/package.json
       - name: Commit release
         run: |
           git add .
