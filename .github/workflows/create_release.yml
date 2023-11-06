@@ -54,18 +54,17 @@ jobs:
       
       - name: Fix packages
         run: |
-          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/api-graphql/package.json ) > packages/api-graphql/package.json
-          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/api-grpc/package.json ) > packages/api-grpc/package.json
-          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/api-rest/package.json ) > packages/api-rest/package.json
-          echo $( jq ".version = ${{ steps.version.outputs.VERSION }}" packages/core/package.json ) > packages/core/package.json        
+          echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-graphql/package.json ) > packages/api-graphql/package.json
+          echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-grpc/package.json ) > packages/api-grpc/package.json
+          echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-rest/package.json ) > packages/api-rest/package.json
+          echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/core/package.json ) > packages/core/package.json        
 
       - name: Commit release
         run: |
           git commit --amend --no-verify --no-edit
-          git push --no-verify
 
-      - name: Create release
-        run: |
-          gh release create ${{ steps.version.outputs.VERSION }} --notes "${{ steps.changelog.outputs.CHANGELOG }}"
+      # - name: Create release
+      #   run: |
+      #     gh release create ${{ steps.version.outputs.VERSION }} --notes "${{ steps.changelog.outputs.CHANGELOG }}"
         
       
