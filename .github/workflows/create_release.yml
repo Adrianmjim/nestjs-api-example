@@ -57,7 +57,10 @@ jobs:
           echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-graphql/package.json ) > packages/api-graphql/package.json
           echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-grpc/package.json ) > packages/api-grpc/package.json
           echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/api-rest/package.json ) > packages/api-rest/package.json
-          echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/core/package.json ) > packages/core/package.json        
+          echo $( jq '.version = "${{ steps.version.outputs.VERSION }}"' packages/core/package.json ) > packages/core/package.json
+          cat packages/core/package.json
+          cat packages/api-grpc/package.json
+          cat package.json
 
       - name: Commit release
         run: |
