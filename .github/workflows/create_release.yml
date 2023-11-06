@@ -35,12 +35,51 @@ jobs:
           echo "::set-output name=CHANGELOG::$(
             conventional-changelog -p conventionalcommits
           )"
+          
+      - name: Apply standard-version
+        run: |
+          cd packages/api-graphql
+          standard-version -t ""  --no-verify --first-release
 
       - name: Apply standard-version
-        run: standard-version -t ""  --no-verify
+        run: |
+          cd ../api-grpc
+          standard-version -t ""  --no-verify --first-release
+
+      - name: Apply standard-version
+        run: |
+          cd ../api-rest
+          standard-version -t ""  --no-verify --first-release
+
+      - name: Apply standard-version
+        run: |
+          cd ../core
+          standard-version -t ""  --no-verify --first-release
+
+
+      - name: Apply standard-version
+        run: |
+          cd ../estlint-config
+          standard-version -t ""  --no-verify --first-release
+      
+      - name: Apply standard-version
+        run: |
+          cd ../jest-config
+          standard-version -t ""  --no-verify --first-release
+
+      - name: Apply standard-version
+        run: |
+          cd ../prettier-config
+          standard-version -t ""  --no-verify --first-release
+
+      - name: Apply standard-version
+        run: |
+          cd ../typescript-config
+          standard-version -t ""  --no-verify --first-release
 
       - name: Commit release
         run: |
+          cd ../..
           git config --global user.email "$GITLAB_USER_EMAIL"
           git config --global user.name "$GITLAB_USER_NAME"
           git commit --amend --no-verify --no-edit
