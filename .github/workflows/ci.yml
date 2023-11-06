@@ -155,7 +155,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v3
         with:
-          images: nestjs-api-example
+          images: adrianmjim/nestjs-api-example
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
