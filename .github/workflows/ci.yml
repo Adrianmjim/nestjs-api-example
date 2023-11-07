@@ -9,6 +9,7 @@ on:
       - 'turbo.json'
       - 'packages/**/*.ts'
       - 'packages/**/package.json'
+      - '.github/workflows/*'
     
 jobs: 
   build:
