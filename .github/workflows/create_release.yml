@@ -37,12 +37,11 @@ jobs:
           git config --global user.name "${{ github.event.sender.login }}"
 
       - name: Create changelog
-        id: changelog
-        run: echo "CHANGELOG=$(conventional-changelog -p conventionalcommits)" >> $GITHUB_OUTPUT
+        run: conventional-changelog -p conventionalcommits -s -r 0
           
       - name: Apply standard-version
         run: |
-          standard-version -t ""  --no-verify
+          standard-version -t ""  --no-verify --first-release
 
       - name: Get new version
         id: version
