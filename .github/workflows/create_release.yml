@@ -38,21 +38,15 @@ jobs:
 
       - name: Create changelog
         id: changelog
-        run: >-
-          echo "::set-output name=CHANGELOG::$(
-            conventional-changelog -p conventionalcommits
-          )"
+        run: echo "CHANGELOG=$(conventional-changelog -p conventionalcommits)" >> $GITHUB_OUTPUT
           
       - name: Apply standard-version
         run: |
-          standard-version -t ""  --no-verify --first-release
+          standard-version -t ""  --no-verify
 
       - name: Get new version
         id: version
-        run: >-
-          echo "::set-output name=VERSION::$(
-            jq .version package.json -r
-          )"
+        run: echo "VERSION=$(jq .version package.json -r)" >> $GITHUB_OUTPUT
       
       - name: Fix packages
         run: |
@@ -73,6 +67,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create ${{ steps.version.outputs.VERSION }} --notes "${{ steps.changelog.outputs.CHANGELOG }}"
+          gh release create ${{ steps.version.outputs.VERSION }} --generate-notes
         
       
