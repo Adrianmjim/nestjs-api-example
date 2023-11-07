@@ -67,6 +67,7 @@ jobs:
           git add .
           git commit --amend --no-verify --no-edit
           git push --force
+          git push --tags
 
       - name: Create release
         env:
