@@ -156,6 +156,10 @@ jobs:
       contents: read
       packages: write
 
+    strategy:
+      matrix:
+        service: [graphql, grpc, rest]
+
     steps:
       - uses: actions/checkout@v4
 
@@ -166,7 +170,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-${{ matrix.service }}
           tags: |
             type=semver,pattern={{version}}
             type=raw,value={{sha}},enable=${{ github.ref_type != 'tag' }}
@@ -183,5 +187,6 @@ jobs:
         with:
           context: .
           push: true
+          target: api-${{ matrix.service }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
