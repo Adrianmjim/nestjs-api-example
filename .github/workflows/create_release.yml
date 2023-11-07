@@ -37,7 +37,7 @@ jobs:
           git config --global user.name "${{ github.event.sender.login }}"
 
       - name: Create changelog
-        run: conventional-changelog -p conventionalcommits -s -r 0
+        run: conventional-changelog -p conventionalcommits -r 0
           
       - name: Apply standard-version
         run: |
