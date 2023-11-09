@@ -26,10 +26,6 @@
   },
   "homepage": "https://github.com/Adrianmjim/nestjs-api-example#readme",
   "devDependencies": {
-    "@nestjs-api-example/api-graphql": "workspace:*",
-    "@nestjs-api-example/api-grpc": "workspace:*",
-    "@nestjs-api-example/api-rest": "workspace:*",
-    "@nestjs-api-example/core": "workspace:*",
     "@nestjs-api-example/eslint-config": "workspace:*",
     "@nestjs-api-example/jest-config": "workspace:*",
     "@nestjs-api-example/prettier-config": "workspace:*",
