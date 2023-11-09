@@ -10,6 +10,10 @@ on:
       - 'packages/**/*.ts'
       - 'packages/**/package.json'
       - '.github/workflows/*'
+
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     
 jobs: 
   build:
@@ -18,10 +22,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x]
-
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     
     steps:
       - uses: actions/checkout@v4
@@ -50,10 +50,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x]
-
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     
     steps:
       - uses: actions/checkout@v4
@@ -83,10 +79,6 @@ jobs:
       matrix:
         node-version: [20.x]
 
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    
     steps:
       - uses: actions/checkout@v4
 
@@ -114,10 +106,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x]
-    
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     
     steps:
       - uses: actions/checkout@v4
