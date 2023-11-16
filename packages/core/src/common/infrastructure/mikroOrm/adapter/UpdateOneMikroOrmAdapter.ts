@@ -1,4 +1,4 @@
-import { AnyEntity, EntityData, EntityManager, EntityRepository, ObjectQuery } from '@mikro-orm/core';
+import { EntityData, EntityManager, EntityRepository, ObjectQuery } from '@mikro-orm/core';
 import { Injectable } from '@nestjs/common';
 
 import { UpdateOneAdapter } from '../../../domain/adapter/UpdateOneAdapter';
@@ -6,9 +6,12 @@ import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { InvalidArgumentException } from '../../../domain/exception/InvalidArgumentException';
 import { PostgreSqlErrorType } from '../../postgresql/model/PostgreSqlErrorType';
 import { isPostgreSqlErrorWithErrorType } from '../../postgresql/typeguard/isPostgreSqlErrorWithErrorType';
+import { AnyEntityMikroOrm } from '../model/AnyEntityMikroOrm';
 
 @Injectable()
-export class UpdateOneMikroOrmAdapter<TCommand, TModelDb extends AnyEntity> implements UpdateOneAdapter<TCommand> {
+export class UpdateOneMikroOrmAdapter<TCommand, TModelDb extends AnyEntityMikroOrm>
+  implements UpdateOneAdapter<TCommand>
+{
   public constructor(
     private readonly entityRepository: EntityRepository<TModelDb>,
     private readonly updateOneCommandToFindQueryMikroOrmConverterAsync: ConverterAsync<TCommand, ObjectQuery<TModelDb>>,

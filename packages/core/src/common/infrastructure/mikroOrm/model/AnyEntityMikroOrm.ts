@@ -1,3 +1,1 @@
-import { AnyEntity } from '@mikro-orm/core';
-
-export type AnyEntityMikroOrm = AnyEntity;
+export type AnyEntityMikroOrm = object;

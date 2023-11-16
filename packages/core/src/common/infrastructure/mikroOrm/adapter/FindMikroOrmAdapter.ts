@@ -1,11 +1,14 @@
-import { AnyEntity, EntityRepository, FindOptions, ObjectQuery } from '@mikro-orm/core';
+import { EntityRepository, FindOptions, ObjectQuery } from '@mikro-orm/core';
 import { Injectable } from '@nestjs/common';
 
 import { FindAdapter } from '../../../domain/adapter/FindAdapter';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
+import { AnyEntityMikroOrm } from '../model/AnyEntityMikroOrm';
 
 @Injectable()
-export class FindMikroOrmAdapter<TQuery, TModelDb extends AnyEntity, TModel> implements FindAdapter<TQuery, TModel> {
+export class FindMikroOrmAdapter<TQuery, TModelDb extends AnyEntityMikroOrm, TModel>
+  implements FindAdapter<TQuery, TModel>
+{
   public constructor(
     private readonly entityRepository: EntityRepository<TModelDb>,
     private readonly findQueryToFindQueryMikroOrmConverterAsync: ConverterAsync<TQuery, ObjectQuery<TModelDb>>,

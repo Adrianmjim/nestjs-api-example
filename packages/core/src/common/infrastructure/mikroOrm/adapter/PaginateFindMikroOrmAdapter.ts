@@ -1,12 +1,13 @@
-import { AnyEntity, EntityRepository, FindOptions, ObjectQuery } from '@mikro-orm/core';
+import { EntityRepository, FindOptions, ObjectQuery } from '@mikro-orm/core';
 import { Injectable } from '@nestjs/common';
 
 import { PaginateFindAdapter } from '../../../domain/adapter/PaginateFindAdapter';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { Pagination } from '../../../domain/model/Pagination';
+import { AnyEntityMikroOrm } from '../model/AnyEntityMikroOrm';
 
 @Injectable()
-export class PaginateFindMikroOrmAdapter<TQuery, TModelDb extends AnyEntity, TModel>
+export class PaginateFindMikroOrmAdapter<TQuery, TModelDb extends AnyEntityMikroOrm, TModel>
   implements PaginateFindAdapter<TQuery, TModel>
 {
   public constructor(

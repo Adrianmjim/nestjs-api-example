@@ -1,4 +1,4 @@
-import { AnyEntity, EntityRepository, ObjectQuery } from '@mikro-orm/core';
+import { EntityRepository, ObjectQuery } from '@mikro-orm/core';
 import { Injectable } from '@nestjs/common';
 
 import { DeleteAdapter } from '../../../domain/adapter/DeleteAdapter';
@@ -6,9 +6,10 @@ import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { InvalidArgumentException } from '../../../domain/exception/InvalidArgumentException';
 import { PostgreSqlErrorType } from '../../postgresql/model/PostgreSqlErrorType';
 import { isPostgreSqlErrorWithErrorType } from '../../postgresql/typeguard/isPostgreSqlErrorWithErrorType';
+import { AnyEntityMikroOrm } from '../model/AnyEntityMikroOrm';
 
 @Injectable()
-export class DeleteMikroOrmAdapter<TCommand, TModelDb extends AnyEntity> implements DeleteAdapter<TCommand> {
+export class DeleteMikroOrmAdapter<TCommand, TModelDb extends AnyEntityMikroOrm> implements DeleteAdapter<TCommand> {
   public constructor(
     private readonly entityRepository: EntityRepository<TModelDb>,
     private readonly deleteCommandToDeleteQueryMikroOrmConverterAsync: ConverterAsync<TCommand, ObjectQuery<TModelDb>>,

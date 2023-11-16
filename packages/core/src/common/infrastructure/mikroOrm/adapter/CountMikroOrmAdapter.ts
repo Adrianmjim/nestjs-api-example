@@ -1,11 +1,12 @@
-import { AnyEntity, EntityRepository, ObjectQuery } from '@mikro-orm/core';
+import { EntityRepository, ObjectQuery } from '@mikro-orm/core';
 import { Injectable } from '@nestjs/common';
 
 import { CountAdapter } from '../../../domain/adapter/CountAdapter';
 import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
+import { AnyEntityMikroOrm } from '../model/AnyEntityMikroOrm';
 
 @Injectable()
-export class CountMikroOrmAdapter<TQuery, TModelDb extends AnyEntity> implements CountAdapter<TQuery> {
+export class CountMikroOrmAdapter<TQuery, TModelDb extends AnyEntityMikroOrm> implements CountAdapter<TQuery> {
   public constructor(
     private readonly entityRepository: EntityRepository<TModelDb>,
     private readonly countQueryToFindQueryMikroOrmConverterAsync: ConverterAsync<TQuery, ObjectQuery<TModelDb>>,

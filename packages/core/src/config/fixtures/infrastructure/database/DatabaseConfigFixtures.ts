@@ -1,15 +1,9 @@
+import { DatabaseEnvVariablesFixtures } from '../../../../envVariable/fixtures/domain/model/DatabaseEnvVariablesFixtures';
 import { DatabaseConfig } from '../../../infrastructure/database/DatabaseConfig';
 
 export class DatabaseConfigFixtures {
   public static get any(): DatabaseConfig {
-    const databaseConfig: DatabaseConfig = {
-      database: 'DATABASE',
-      host: 'HOST',
-      password: 'PASSWORD',
-      port: 1234,
-      readReplicaHosts: ['REPLICA-HOST'],
-      user: 'USER',
-    };
+    const databaseConfig: DatabaseConfig = new DatabaseConfig({ loadData: () => DatabaseEnvVariablesFixtures.any });
 
     return databaseConfig;
   }

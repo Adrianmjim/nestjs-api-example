@@ -1,4 +1,4 @@
-import { AnyEntity, EntityManager, EntityRepository, RequiredEntityData } from '@mikro-orm/core';
+import { EntityManager, EntityRepository, RequiredEntityData } from '@mikro-orm/core';
 import { Injectable } from '@nestjs/common';
 
 import { InsertAdapter } from '../../../domain/adapter/InsertAdapter';
@@ -6,9 +6,10 @@ import { ConverterAsync } from '../../../domain/converter/ConverterAsync';
 import { InvalidArgumentException } from '../../../domain/exception/InvalidArgumentException';
 import { PostgreSqlErrorType } from '../../postgresql/model/PostgreSqlErrorType';
 import { isPostgreSqlErrorWithErrorType } from '../../postgresql/typeguard/isPostgreSqlErrorWithErrorType';
+import { AnyEntityMikroOrm } from '../model/AnyEntityMikroOrm';
 
 @Injectable()
-export class InsertMikroOrmAdapter<TCommand, TModelDb extends AnyEntity, TModel>
+export class InsertMikroOrmAdapter<TCommand, TModelDb extends AnyEntityMikroOrm, TModel>
   implements InsertAdapter<TCommand, TModel>
 {
   public constructor(

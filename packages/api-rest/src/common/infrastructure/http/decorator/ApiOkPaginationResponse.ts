@@ -3,6 +3,7 @@ import { ApiExtraModels, ApiOkResponse, getSchemaPath } from '@nestjs/swagger';
 
 import { PaginationHttp } from '../model/PaginationHttp';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const ApiOkPaginationResponse: <TModel extends Type>(options: {
   description: string;
   type: TModel;
