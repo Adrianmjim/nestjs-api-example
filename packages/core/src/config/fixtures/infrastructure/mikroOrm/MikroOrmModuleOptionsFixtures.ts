@@ -20,6 +20,6 @@ export class MikroOrmModuleOptionsFixtures {
       user: DatabaseConfigFixtures.any.user,
     };
 
-    return mikroOrmModuleOptions;
+    return mikroOrmModuleOptions as Record<string, unknown>;
   }
 }

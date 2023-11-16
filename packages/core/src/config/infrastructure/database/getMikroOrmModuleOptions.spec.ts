@@ -9,6 +9,7 @@ import { MikroOrmModuleOptionsFixtures } from '../../fixtures/infrastructure/mik
 
 describe(getMikroOrmModuleOptions.name, () => {
   let mikroOrmConfig: DatabaseConfig;
+
   beforeAll(() => {
     mikroOrmConfig = DatabaseConfigFixtures.any;
   });
@@ -18,12 +19,15 @@ describe(getMikroOrmModuleOptions.name, () => {
     let mikroOrmModuleOptionsFixture: MikroOrmModuleOptions;
 
     beforeAll(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       mikroOrmModuleOptionsFixture = MikroOrmModuleOptionsFixtures.any;
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       result = getMikroOrmModuleOptions(mikroOrmConfig);
     });
 
     it('should return the correct config', () => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       expect(result).toMatchObject(mikroOrmModuleOptionsFixture);
     });
   });
