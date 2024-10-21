@@ -30,9 +30,9 @@
     "@nestjs-api-example/jest-config": "workspace:*",
     "@nestjs-api-example/prettier-config": "workspace:*",
     "@nestjs-api-example/typescript-config": "workspace:*",
-    "husky": "8.0.3",
+    "husky": "9.1.6",
     "lint-staged": "15.2.2",
-    "turbo": "1.12.4"
+    "turbo": "2.2.3"
   },
   "version": "1.0.0"
 }
