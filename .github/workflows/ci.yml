@@ -24,15 +24,15 @@ jobs:
         node-version: [20.x]
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@v6.0.10
         with:
           version: latest
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -52,15 +52,15 @@ jobs:
         node-version: [20.x]
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@v6.0.10
         with:
           version: latest
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -80,15 +80,15 @@ jobs:
         node-version: [20.x]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@v6.0.10
         with:
           version: latest
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -108,15 +108,15 @@ jobs:
         node-version: [20.x]
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@v6.0.10
         with:
           version: latest
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -129,6 +129,6 @@ jobs:
         run: pnpm test:js:coverage
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
